@@ -8,20 +8,20 @@ version := "0.0.1"
 
 scalaVersion := "2.10.4"
 
-javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
+javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 // protocol buffer support
 seq(sbtprotobuf.ProtobufPlugin.protobufSettings: _*)
 
 // additional libraries
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "1.3.1" % "provided",
-  "org.apache.spark" %% "spark-sql" % "1.3.1",
-  "org.apache.spark" %% "spark-hive" % "1.3.1",
-  "org.apache.spark" %% "spark-streaming" % "1.3.1",
-  "org.apache.spark" %% "spark-streaming-kafka" % "1.3.1",
-  "org.apache.spark" %% "spark-streaming-flume" % "1.3.1",
-  "org.apache.spark" %% "spark-mllib" % "1.3.1",
+  "org.apache.spark" %% "spark-core" % "2.0.2" % "provided",
+  "org.apache.spark" %% "spark-sql" % "2.0.2",
+  "org.apache.spark" %% "spark-hive" % "2.0.2",
+  "org.apache.spark" %% "spark-streaming" % "2.0.2",
+  "org.apache.spark" %% "spark-streaming-kafka" % "1.6.0",
+  "org.apache.spark" %% "spark-streaming-flume" % "2.0.2",
+  "org.apache.spark" %% "spark-mllib" % "2.0.2",
   "org.apache.commons" % "commons-lang3" % "3.0",
   "org.eclipse.jetty"  % "jetty-client" % "8.1.14.v20131031",
   "com.typesafe.play" % "play-json_2.10" % "2.2.1",

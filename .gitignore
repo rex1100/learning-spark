@@ -1,6 +1,9 @@
 *.class
 *.log
+.idea
 
+# this file is too large for git to handle, the tar.gz is included though
+files/train_triplets.txt
 # sbt specific
 dist/*
 target/

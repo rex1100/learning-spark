@@ -3,8 +3,8 @@ set -e
 set -x
 # Do our mini example first
 cd mini-complete-example
-./sbt/sbt clean compile package
-./sbt/sbt clean
+#./sbt/sbt clean compile package
+#./sbt/sbt clean
 echo $PWD && mvn clean && mvn compile
 cd ..
 # Run the tests
