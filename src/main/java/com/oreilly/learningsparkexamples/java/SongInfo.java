@@ -14,15 +14,15 @@ public class SongInfo implements Serializable {
     String artistId;
     String artistMbid;
     String artistName;
-    Double duration;
-    String artistFamiliarity;
-    Double artistHotttnesss;
+    double duration;
+    double artistFamiliarity;
+    double artistHotttnesss;
     int year;
 
     public SongInfo() {
     }
 
-    public SongInfo(String trackId, String title, String songId, String release, String artistId, String artistMbid, String artistName, Double duration, String artistFamiliarity, Double artistHotttnesss, int year) {
+    public SongInfo(String trackId, String title, String songId, String release, String artistId, String artistMbid, String artistName, double duration, double artistFamiliarity, double artistHotttnesss, int year) {
         this.trackId = trackId;
         this.title = title;
         this.songId = songId;
@@ -92,27 +92,27 @@ public class SongInfo implements Serializable {
         this.artistName = artistName;
     }
 
-    public Double getDuration() {
+    public double getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(double duration) {
         this.duration = duration;
     }
 
-    public String getArtistFamiliarity() {
+    public double getArtistFamiliarity() {
         return artistFamiliarity;
     }
 
-    public void setArtistFamiliarity(String artistFamiliarity) {
+    public void setArtistFamiliarity(double artistFamiliarity) {
         this.artistFamiliarity = artistFamiliarity;
     }
 
-    public Double getArtistHotttnesss() {
+    public double getArtistHotttnesss() {
         return artistHotttnesss;
     }
 
-    public void setArtistHotttnesss(Double artistHotttnesss) {
+    public void setArtistHotttnesss(double artistHotttnesss) {
         this.artistHotttnesss = artistHotttnesss;
     }
 

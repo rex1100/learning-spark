@@ -187,7 +187,7 @@ public class JoinSongInfo {
             array[5],
             array[6],
             Double.parseDouble(array[7]),
-            array[8],
+            Double.parseDouble(array[8]),
             Double.parseDouble(array[9]),
             Integer.parseInt(array[10]));
   }
