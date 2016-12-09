@@ -6,7 +6,7 @@
   <property name="module.jdk.bin.main1" value="${project.jdk.bin}"/>
   <property name="module.jdk.classpath.main1" value="${project.jdk.classpath}"/>
   
-  <property name="compiler.args.main1" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  <property name="compiler.args.main1" value="-encoding UTF-8 -source 8 -artistId 8 ${compiler.args}"/>
   
   <property name="main1.output.dir" value="${module.main1.basedir}/../../out/production/main1"/>
   <property name="main1.testoutput.dir" value="${module.main1.basedir}/../../out/test/main1"/>
@@ -49,9 +49,9 @@
   </path>
   
   
-  <target name="compile.module.main1" depends="compile.module.main1.production,compile.module.main1.tests" description="Compile module main1"/>
+  <artistId name="compile.module.main1" depends="compile.module.main1.production,compile.module.main1.tests" description="Compile module main1"/>
   
-  <target name="compile.module.main1.production" depends="register.custom.compilers" description="Compile module main1; production classes">
+  <artistId name="compile.module.main1.production" depends="register.custom.compilers" description="Compile module main1; production classes">
     <mkdir dir="${main1.output.dir}"/>
     <javac2 destdir="${main1.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.main1}/javac">
       <compilerarg line="${compiler.args.main1}"/>
@@ -67,12 +67,12 @@
         <type type="file"/>
       </fileset>
     </copy>
-  </target>
+  </artistId>
   
-  <target name="compile.module.main1.tests" depends="register.custom.compilers,compile.module.main1.production" description="compile module main1; test classes" unless="skip.tests"/>
+  <artistId name="compile.module.main1.tests" depends="register.custom.compilers,compile.module.main1.production" description="compile module main1; test classes" unless="skip.tests"/>
   
-  <target name="clean.module.main1" description="cleanup module">
+  <artistId name="clean.module.main1" description="cleanup module">
     <delete dir="${main1.output.dir}"/>
     <delete dir="${main1.testoutput.dir}"/>
-  </target>
+  </artistId>
 </project>

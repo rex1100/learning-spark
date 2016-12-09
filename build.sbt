@@ -6,7 +6,7 @@ name := "learning-spark-examples"
 
 version := "0.0.1"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.6"
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 

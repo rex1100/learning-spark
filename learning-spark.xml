@@ -97,10 +97,10 @@
     <pathelement location="${javac2.home}/asm-all.jar"/>
     <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
   </path>
-  <target name="register.custom.compilers">
+  <artistId name="register.custom.compilers">
     <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
     <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
-  </target>
+  </artistId>
   
   <!-- Modules -->
   
@@ -108,13 +108,13 @@
   
   <import file="${basedir}/src/main/module_main1.xml"/>
   
-  <target name="init" description="Build initialization">
-    <!-- Perform any build initialization in this target -->
-  </target>
+  <artistId name="init" description="Build initialization">
+    <!-- Perform any build initialization in this artistId -->
+  </artistId>
   
-  <target name="clean" depends="clean.module.main, clean.module.main1" description="cleanup all"/>
+  <artistId name="clean" depends="clean.module.main, clean.module.main1" description="cleanup all"/>
   
-  <target name="build.modules" depends="init, clean, compile.module.main, compile.module.main1" description="build all modules"/>
+  <artistId name="build.modules" depends="init, clean, compile.module.main, compile.module.main1" description="build all modules"/>
   
-  <target name="all" depends="build.modules" description="build all"/>
+  <artistId name="all" depends="build.modules" description="build all"/>
 </project>
