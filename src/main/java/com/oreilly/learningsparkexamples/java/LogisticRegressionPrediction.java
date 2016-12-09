@@ -4,6 +4,7 @@ package com.oreilly.learningsparkexamples.java;
  * Created by mitch on 08/12/16.
  */
 
+import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.ml.feature.Tokenizer;
 import org.apache.spark.ml.linalg.Vector;
@@ -37,33 +38,51 @@ public class LogisticRegressionPrediction {
     }
 
     public static void run(String master) {
-        String path = "output/OutputExample/1481257251529/1927";
-        SparkSession spark = SparkSession
-                .builder()
-                .appName("JavaLogisticRegressionSummaryExample")
-                .getOrCreate();
+        String trainingPath = "output/OutputExample/1481257251529/2000";
+        String testPath = "output/OutputExample/1481257251529/2001";
 
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
 
-        SQLContext sqlContext = new SQLContext(sc);
-
-        JavaRDD<String> data = sc.textFile(path);
-
-        JavaRDD<LabeledPoint> songInfoRDD = sc.textFile(path).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+        JavaRDD<LabeledPoint> trainingData = sc.textFile(trainingPath).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            return new LabeledPoint(song.getArtistHotttnesss(), Vectors.dense(points));
+            double isHot = -1.0;
+            if(song.getArtistHotttnesss() >= 0.75) {
+                isHot = 0.0;
+            }
+            return new LabeledPoint(isHot, Vectors.dense(points));
+        });
+
+        JavaRDD<LabeledPoint> testingData = sc.textFile(trainingPath).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+            double[] points = {song.getArtistFamiliarity(), song.getDuration()};
+            return new LabeledPoint(0.0, Vectors.dense(points));
         });
 
 
-        final LogisticRegressionWithLBFGS model = new LogisticRegressionWithLBFGS();
-        model.setNumClasses(10);
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(2).run(trainingData.rdd());
 
-        model.run(songInfoRDD.rdd());
+        /*JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
+                new Function<LabeledPoint, Tuple2<Object, Object>>() {
+                    public Tuple2<Object, Object> call(LabeledPoint p) {
+                        Double prediction = model.predict(p.features());
+                        return new Tuple2<Object, Object>(prediction, p.label());
+                    }
+                }
+        );
+
+        MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
+        double accuracy = metrics.accuracy();
+        System.out.println("Accuracy = " + accuracy);
+
+        model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
+        LogisticRegressionModel sameModel = LogisticRegressionModel.load(sc.sc(),
+                "target/tmp/javaLogisticRegressionWithLBFGSModel");*/
 
     }
 
     public static SongInfo createSongInfo(String toSplit){
+        toSplit = toSplit.replace("[", "");
+        toSplit = toSplit.replace("]", "");
         String[] array = toSplit.split(",");
         return new SongInfo(array[1],
                 array[2],
