@@ -6,9 +6,13 @@ package com.oreilly.learningsparkexamples.java;
 import java.io.StringReader;
 import java.time.Instant;
 
+import org.apache.commons.collections.ListUtils;
 import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.RelationalGroupedDataset;
 import org.apache.spark.sql.SQLContext;
 import java.lang.Double;
+import java.util.Collections;
+import java.util.List;
 
 import scala.Tuple2;
 
@@ -32,7 +36,7 @@ public class JoinSongInfo {
 
   public static void main(String[] args) throws Exception {
 //		if (args.length != 3) {
-//      throw new Exception("Usage JoinSongInfo sparkMaster csv1 csv2");
+//      throw new Exception("Usage BasicJoinCsv sparkMaster csv1 csv2");
 //		}
     String master = args[0];
 
@@ -40,15 +44,21 @@ public class JoinSongInfo {
     // relative paths to the folders, if these don't work use absolute paths
     String csv1 = "files/temp_songs";
     String csv2 = "files/train_triplets.txt";
-    String csv3 = "files/subset_tracks_per_year.txt";
+    String csv3 = "files/artists_similar";
+    String csv4 = "files/artists_mbtag";
+    String csv5 = "files/artists_term";
+    String csv6 = "files/subset_tracks_per_year.txt";
 
     JoinSongInfo jsv = new JoinSongInfo();
-    jsv.run(master, csv1, csv2, csv3);
+    jsv.run(master, csv1, csv2, csv3, csv4, csv5, csv6);
   }
 
   public static void run(String master,
                          String songs,
                          String plays,
+                         String similar,
+                         String mbtag,
+                         String term,
                          String years)
           throws Exception {
 
@@ -63,6 +73,41 @@ public class JoinSongInfo {
     /* not included right now to let the job run properly */
     JavaRDD<String> csvFile6 = sc.textFile(years);
 
+//    JavaRDD<String> csvFile3 = sc.textFile(similar);
+    JavaRDD<String> csvFile4 = sc.textFile(mbtag);
+    JavaRDD<String> csvFile5 = sc.textFile(term);
+
+    // these all map single lines to a pair of <ArtistId, List<Value>>
+    // the value changes based on the csv we read from
+    // These then reduce the lists by union so we only have one artistId followed by a list of values
+    // Then this turns them into the Artist object RDDs
+//    JavaRDD<ArtistAndList> artistSimilarRDD = csvFile3
+//            .mapToPair(string -> {
+//              String[] array = string.split(",");
+//              return new Tuple2<>(array[0], Collections.singletonList(array[1]));
+//            })
+//            .reduceByKey((x,y) -> ListUtils.union(x,y))
+//            /**NOTE: this is not going to be pretty, but because of the scala version we're using we have to do this **/
+//            .map(pair -> new ArtistAndList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
+
+      JavaRDD<ArtistAndList> artistTagRDD = csvFile4
+            .mapToPair(string -> {
+              String[] array = string.split(",");
+              return new Tuple2<>(array[0], Collections.singletonList(array[1]));
+            })
+            .reduceByKey((x,y) -> ListUtils.union(x,y))
+            // see above
+            .map(pair -> new ArtistAndList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
+
+      JavaRDD<ArtistAndList> artistTermRDD = csvFile5
+            .mapToPair(string -> {
+              String[] array = string.split(",");
+              return new Tuple2<>(array[0], Collections.singletonList(array[1]));
+            })
+            .reduceByKey((x,y) -> ListUtils.union(x,y))
+            // see above
+            .map(pair -> new ArtistAndList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
+
     JavaRDD<SongYear> trackYearRDD = csvFile6
             .mapToPair(string -> {
               String[] array = string.split(",");
@@ -70,15 +115,30 @@ public class JoinSongInfo {
             })
             .map(pair -> new SongYear((String)((Tuple2)pair)._2(),(Integer)((Tuple2)pair)._1()));
 
+
+    // This turns the RDD's into datasets, Datasets allow us to use Sqlesque commands on the data
+    //Dataset similarArtists = sqlContext.createDataFrame(artistSimilarRDD, ArtistAndList.class);
+    Dataset artistTags = sqlContext.createDataFrame(artistTagRDD, ArtistAndList.class);
+    Dataset artistTerms = sqlContext.createDataFrame(artistTermRDD, ArtistAndList.class);
     Dataset songInfo = sqlContext.createDataFrame(songInfoRDD, SongInfo.class);
     Dataset songYears = sqlContext.createDataFrame(trackYearRDD, SongYear.class);
     Dataset songPlays = sqlContext.createDataFrame(createSongPlaysRDD(csvFile2), SongPlays.class);
 
+    // naming the Cols allows us to use those names as a specification later
+    Dataset artistLists = artistTags
+            .join(artistTerms, artistTags.col("artistId").equalTo(artistTerms.col("artistId")))
+            .select(artistTags.col("artistId"),
+                    artistTags.col("valueList").as("artistTags"),
+                    artistTerms.col("valueList").as("artistTerms"));
+
+
     songInfo
             .join(songPlays, songInfo.col("songId").equalTo(songPlays.col("songId")))
+            .join(artistLists, songInfo.col("artistId").equalTo(artistLists.col("artistId")))
             .join(songYears, songYears.col("trackId").equalTo(songInfo.col("trackId")))
             // map the cols in a order that we know
-            .select(songInfo.col("trackId"),
+            .select(songYears.col("year"),
+                    songInfo.col("trackId"),
                     songInfo.col("title"),
                     songInfo.col("songId"),
                     songInfo.col("release"),
@@ -88,9 +148,9 @@ public class JoinSongInfo {
                     songInfo.col("duration"),
                     songInfo.col("artistFamiliarity"),
                     songInfo.col("artistHotttnesss"),
-                    songYears.col("year"),
-                    songPlays.col("playCount"))
-            .sort(songPlays.col("playCount"))
+                    artistLists.col("artistTags"),
+                    artistLists.col("artistTerms"))
+            .sort(songYears.col("year"))
             .toJavaRDD()
             .coalesce(1)
             .saveAsTextFile("output/songs/"+ Instant.now().toEpochMilli());

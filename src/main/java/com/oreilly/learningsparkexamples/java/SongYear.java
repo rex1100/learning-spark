@@ -7,10 +7,20 @@ public class SongYear {
 
     String trackId;
     int year;
+    int decade;
 
     public SongYear(String trackId, int year) {
         this.trackId = trackId;
         this.year = year;
+        decade = (year/10) * 10; // this should remove the last digit to give a decade
+    }
+
+    public int getDecade() {
+        return decade;
+    }
+
+    public void setDecade(int decade) {
+        this.decade = decade;
     }
 
     public String getTrackId() {
