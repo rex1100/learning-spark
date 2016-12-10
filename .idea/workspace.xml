@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50b2d554-b422-470a-a669-68db2000001b" name="Default" comment="added full data set, and output results">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java" />
+    <list default="true" id="50b2d554-b422-470a-a669-68db2000001b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1922" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1922" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1927" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1927" />
@@ -79,7 +77,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/2010" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/2010" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run-all-examples" afterPath="$PROJECT_DIR$/run-all-examples" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -98,21 +95,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LogisticRegressionPrediction.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LogisticRegressionPrediction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="89" column="82" lean-forward="true" selection-start-line="89" selection-start-column="82" selection-end-line="89" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log4j.properties.template" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="41" />
+            <state relative-caret-position="420">
+              <caret line="88" column="49" lean-forward="false" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -121,18 +108,18 @@
       <file leaf-file-name="run-all-examples" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run-all-examples">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="66" column="116" lean-forward="false" selection-start-line="66" selection-start-column="116" selection-end-line="66" selection-end-column="116" />
+            <state relative-caret-position="559">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2010" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2010" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/2010">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="2831" column="408" lean-forward="true" selection-start-line="2831" selection-start-column="229" selection-end-line="2831" selection-end-column="408" />
+            <state relative-caret-position="36">
+              <caret line="2805" column="322" lean-forward="true" selection-start-line="2805" selection-start-column="322" selection-end-line="2805" selection-end-column="322" />
               <folding />
             </state>
           </provider>
@@ -141,8 +128,8 @@
       <file leaf-file-name="EnhancedSongInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="630">
+              <caret line="38" column="37" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1323#1324#0" expanded="true" />
@@ -209,8 +196,8 @@
       <file leaf-file-name="JoinSongInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1375">
-              <caret line="83" column="44" lean-forward="false" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="44" />
+            <state relative-caret-position="133">
+              <caret line="114" column="52" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -294,11 +281,11 @@
         <option value="$PROJECT_DIR$/output/OutputExample/fullData/2010" />
         <option value="$PROJECT_DIR$/output/OutputExample/fullData/seperate-years.sh" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java" />
-        <option value="$PROJECT_DIR$/run-all-examples" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" />
+        <option value="$PROJECT_DIR$/run-all-examples" />
+        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" />
       </list>
     </option>
   </component>
@@ -462,22 +449,12 @@
               <option name="myItemId" value="output" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="learning-spark2" />
+              <option name="myItemId" value="songs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="output" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OutputExample" />
+              <option name="myItemId" value="1481352624966" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -495,11 +472,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="OutputExample" />
+              <option name="myItemId" value="songs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fullData" />
+              <option name="myItemId" value="1481352275424" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-spark2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="songs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="1481351899163" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-spark2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="songs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-spark2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OutputExample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -842,7 +877,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481326804797</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="updated how lists are stored">
+      <created>1481350289742</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1481350289742</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -891,7 +933,8 @@
     <MESSAGE value="temp commit, artists doesn't work yet so it doesn't run with the other job after the build." />
     <MESSAGE value="added data that we needed to the output and added a script to pull out the songs by years." />
     <MESSAGE value="added full data set, and output results" />
-    <option name="LAST_COMMIT_MESSAGE" value="added full data set, and output results" />
+    <MESSAGE value="updated how lists are stored" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated how lists are stored" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1130,6 +1173,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="80" column="206" lean-forward="false" selection-start-line="80" selection-start-column="202" selection-end-line="80" selection-end-column="206" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1149,6 +1193,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="3224" column="0" lean-forward="false" selection-start-line="3224" selection-start-column="0" selection-end-line="3224" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,6 +1201,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
           <caret line="8432" column="5" lean-forward="true" selection-start-line="8432" selection-start-column="5" selection-end-line="8432" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,6 +1229,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1938">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1191,20 +1245,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java">
+    <entry file="file://$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1375">
-          <caret line="83" column="44" lean-forward="false" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="558">
+          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="630">
+          <caret line="38" column="37" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1323#1324#0" expanded="true" />
@@ -1269,40 +1321,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run-all-examples">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="66" column="116" lean-forward="false" selection-start-line="66" selection-start-column="116" selection-end-line="66" selection-end-column="116" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1938">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/2010">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="2831" column="408" lean-forward="true" selection-start-line="2831" selection-start-column="229" selection-end-line="2831" selection-end-column="408" />
+        <state relative-caret-position="559">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="89" column="82" lean-forward="true" selection-start-line="89" selection-start-column="82" selection-end-line="89" selection-end-column="82" />
+        <state relative-caret-position="420">
+          <caret line="88" column="49" lean-forward="false" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="114" column="52" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/2010">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2805" column="322" lean-forward="true" selection-start-line="2805" selection-start-column="322" selection-end-line="2805" selection-end-column="322" />
           <folding />
         </state>
       </provider>

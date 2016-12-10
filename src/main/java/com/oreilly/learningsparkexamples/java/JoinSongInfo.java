@@ -7,6 +7,7 @@ import java.io.StringReader;
 import java.time.Instant;
 
 import org.apache.commons.collections.ListUtils;
+import org.apache.spark.ml.feature.StringIndexer;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.RelationalGroupedDataset;
 import org.apache.spark.sql.SQLContext;
@@ -79,6 +80,10 @@ public class JoinSongInfo {
     JavaRDD<String> csvFile4 = sc.textFile(mbtag);
     JavaRDD<String> csvFile5 = sc.textFile(term);
 
+    StringIndexer indexer = new StringIndexer()
+            .setInputCol("valueList")
+            .setOutputCol("TagIndex");
+
     // these all map single lines to a pair of <ArtistId, List<Value>>
     // the value changes based on the csv we read from
     // These then reduce the lists by union so we only have one artistId followed by a list of values
@@ -92,28 +97,54 @@ public class JoinSongInfo {
 //            /**NOTE: this is not going to be pretty, but because of the scala version we're using we have to do this **/
 //            .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
 
-      JavaRDD<ArtistAndStringList> artistTagRDD = csvFile4
-            .mapToPair(string -> {
-              String[] array = string.split(",");
-              return new Tuple2<>(array[0], (array[1]));
-            })
+    JavaRDD<ArtistAndStringList> artistTagRDD = csvFile4.map(string -> {
+      String[] array = string.split(",");
+      return new ArtistAndStringList(array[0], (array[1]));
+    });
+
+    Dataset tags = sqlContext.createDataFrame(artistTagRDD, ArtistAndStringList.class);
+
+    JavaRDD artistTagsIndexRDD = indexer.fit(tags).transform(tags)
+            .toJavaRDD()
+            .mapToPair(row -> new Tuple2 (row.get(0), row.get(2)+""))
             .reduceByKey((x,y) -> x+";"+y)
-            // see above
             .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(String)((Tuple2)pair)._2()));
 
-      JavaRDD<ArtistAndStringList> artistTermRDD = csvFile5
-            .mapToPair(string -> {
-              String[] array = string.split(",");
-              return new Tuple2<>(array[0], array[1]);
-            })
+    JavaRDD<ArtistAndStringList> artistTermRDD = csvFile5.map(string -> {
+      String[] array = string.split(",");
+      return new ArtistAndStringList(array[0], (array[1]));
+    });
+
+    Dataset terms = sqlContext.createDataFrame(artistTermRDD, ArtistAndStringList.class);
+
+    JavaRDD artistTermIndexRDD = indexer.fit(terms).transform(terms)
+            .toJavaRDD()
+            .mapToPair(row -> new Tuple2 (row.get(0), row.get(2)+""))
             .reduceByKey((x,y) -> x+";"+y)
-            // see above
             .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(String)((Tuple2)pair)._2()));
+
+//            JavaRDD<ArtistAndStringList> artistTagRDD = csvFile4
+//            .mapToPair(string -> {
+//              String[] array = string.split(",");
+//              return new Tuple2<>(array[0], (array[1]));
+//            })
+//            .reduceByKey((x,y) -> x+";"+y)
+//            // see above
+//            .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(String)((Tuple2)pair)._2()));
+
+//      JavaRDD<ArtistAndStringList> artistTermRDD = csvFile5
+//            .mapToPair(string -> {
+//              String[] array = string.split(",");
+//              return new Tuple2<>(array[0], array[1]);
+//            })
+//            .reduceByKey((x,y) -> x+";"+y)
+//            // see above
+//            .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(String)((Tuple2)pair)._2()));
 
     // This turns the RDD's into datasets, Datasets allow us to use Sqlesque commands on the data
     //Dataset similarArtists = sqlContext.createDataFrame(artistSimilarRDD, ArtistAndStringList.class);
-    Dataset artistTags = sqlContext.createDataFrame(artistTagRDD, ArtistAndStringList.class);
-    Dataset artistTerms = sqlContext.createDataFrame(artistTermRDD, ArtistAndStringList.class);
+    Dataset artistTags = sqlContext.createDataFrame(artistTagsIndexRDD, ArtistAndStringList.class);
+    Dataset artistTerms = sqlContext.createDataFrame(artistTermIndexRDD, ArtistAndStringList.class);
     Dataset songInfo = sqlContext.createDataFrame(songInfoRDD, SongInfo.class);
     Dataset songPlays = sqlContext.createDataFrame(createSongPlaysRDD(csvFile2), SongPlays.class);
 
