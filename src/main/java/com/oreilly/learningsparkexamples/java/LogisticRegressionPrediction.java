@@ -87,29 +87,30 @@ public class LogisticRegressionPrediction {
 
         JavaRDD<LabeledPoint> trainingData = trainingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            double isHot = 0.0;
-            if(song.getArtistHotttnesss() >= 0.75) {
-                isHot = 2.0;
-            } else if(song.getArtistHotttnesss() >= 0.50) {
-                isHot = 1.0;
-            }
+            double isHot = Math.round(song.getArtistHotttnesss() * 10.0) - 1;
             return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
+<<<<<<< e67a69856723f0590b3257c058c63eb4177b7638
         JavaRDD<LabeledPoint> testingData = testingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+=======
+        JavaRDD<LabeledPoint> testingData = sc.textFile(testPath).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+>>>>>>> 70e4b141668a0cebb1b1a4c60da839fefb5231d6
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            return new LabeledPoint(0.0, Vectors.dense(points));
+            double isHot = Math.round(song.getArtistHotttnesss() * 10.0) - 1;
+            return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
         trainingData.cache();
 
 
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(3).run(trainingData.rdd());
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(10).run(trainingData.rdd());
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         Double prediction = model.predict(p.features());
+                        //System.out.println("Features: " + p.features().toString() + " Prediction: " + prediction + " Actual: " + p.toString());
                         return new Tuple2<Object, Object>(prediction, p.label());
                     }
                 }
@@ -117,11 +118,10 @@ public class LogisticRegressionPrediction {
 
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
         double accuracy = metrics.accuracy();
-        System.out.println("Accuracy = " + accuracy);
 
-        model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
-        LogisticRegressionModel sameModel = LogisticRegressionModel.load(sc.sc(),
-                "target/tmp/javaLogisticRegressionWithLBFGSModel");
+        //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
+
+        System.out.println("Accuracy = " + accuracy);
 
     }
 

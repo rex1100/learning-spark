@@ -64,12 +64,18 @@ rm -rf /tmp/scala; mkdir -p /tmp/scala
 
 # Java
 echo "Running Java programs"
+<<<<<<< e67a69856723f0590b3257c058c63eb4177b7638
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.LogisticRegressionPrediction $ASSEMBLY_JAR local
 $SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.JoinSongInfo $ASSEMBLY_JAR local ./files/pandainfo.json
+=======
+#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.JoinSongInfo $ASSEMBLY_JAR local ./files/pandainfo.json
+>>>>>>> 70e4b141668a0cebb1b1a4c60da839fefb5231d6
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.SimilarArtists $ASSEMBLY_JAR local ./files/pandainfo.json
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.ChapterSixExample $ASSEMBLY_JAR local ./files/callsigns ./files/callsigns /tmp/java/ch6out
 #./sbt/sbt assembly && $SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.SparkSQLTwitter  $ASSEMBLY_JAR  ./files/testweet.json  /tmp/java/tweetout
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.BasicQueryCassandra $ASSEMBLY_JAR local localhost
+echo "Running Prediction"
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.LogisticRegressionPrediction $ASSEMBLY_JAR local
 #echo "Running Java streaming program"
 #./bin/fakelogs.sh &
 #sleep 1
