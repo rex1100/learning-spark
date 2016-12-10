@@ -152,6 +152,87 @@ public class HotnessPrediction {
 
         System.out.println("Accuracy = " + accuracy);
 
+
+
+        JavaRDD<LabeledPoint> trainingDataWithMultiValueHotness = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
+                .map((EnhancedSongInfo song) -> {
+                    double[] tags = song.getArtistTags();
+                    double[] points = new double[tags.length + 2];
+                    ArrayList<Integer> indexArray = new ArrayList<Integer>();
+                    int[] indices = new int[tags.length + 2];
+
+                    for(int i=0; i<tags.length; i++) {
+                        points[i] = tags[i];
+                        indexArray.add((int)tags[i]);
+                    }
+
+                    points[points.length-2] = song.getArtistFamiliarity();
+                    indexArray.add(points.length-2);
+                    points[points.length-1] = song.getDuration();
+                    indexArray.add(points.length-1);
+
+                    for(int i=0; i<indexArray.size(); i++) {
+                        indices[i] = indexArray.get(i);
+                    }
+
+                    double isHot = Math.round(song.getArtistHotttnesss() * 10.0);
+
+                    if(isHot > 0) {
+                        isHot--;
+                    }
+
+                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                });
+
+        JavaRDD<LabeledPoint> testingDataWithMultiValueHotness = testingDecade.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
+            double[] tags = song.getArtistTags();
+            double[] points = new double[tags.length + 2];
+            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+            int[] indices = new int[tags.length + 2];
+
+            for(int i=0; i<tags.length; i++) {
+                points[i] = tags[i];
+                indexArray.add((int)tags[i]);
+            }
+
+            points[points.length-2] = song.getArtistFamiliarity();
+            indexArray.add(points.length-2);
+            points[points.length-1] = song.getDuration();
+            indexArray.add(points.length-1);
+
+            for(int i=0; i<indexArray.size(); i++) {
+                indices[i] = indexArray.get(i);
+            }
+
+
+            double isHot = Math.round(song.getArtistHotttnesss() * 10.0);
+
+            if(isHot > 0) {
+                isHot--;
+            }
+
+            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+        });
+
+        trainingDataWithMultiValueHotness.cache();
+
+        final LogisticRegressionModel modelWithMultiValueHotness = new LogisticRegressionWithLBFGS().setNumClasses(10).run(trainingDataWithMultiValueHotness.rdd());
+
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsWithMultiValueHotness = testingDataWithMultiValueHotness.map(
+                new Function<LabeledPoint, Tuple2<Object, Object>>() {
+                    public Tuple2<Object, Object> call(LabeledPoint p) {
+                        return new Tuple2<Object, Object>(modelWithMultiValueHotness.predict(p.features()), p.label());
+                    }
+                }
+        );
+
+        MulticlassMetrics multiValueMetrics = new MulticlassMetrics(predictionAndLabelsWithMultiValueHotness.rdd());
+        double multiValueAccuracy = multiValueMetrics.weightedPrecision();
+
+        //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
+
+        System.out.println("Accuracy = " + multiValueAccuracy);
+
     }
 
     public static EnhancedSongInfo createEnhancedSongInfo(String toSplit){
