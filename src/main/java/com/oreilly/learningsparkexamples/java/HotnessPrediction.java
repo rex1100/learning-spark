@@ -92,8 +92,6 @@ public class HotnessPrediction {
             points[points.length-1] = song.getDuration();
             indexArray.add(points.length-1);
 
-            System.out.println(song.getPlayCount());
-
             for(int i=0; i<indexArray.size(); i++) {
                 indices[i] = indexArray.get(i);
             }

@@ -18,11 +18,13 @@ import org.apache.spark.mllib.evaluation.MulticlassMetrics;
 import org.apache.spark.mllib.regression.LabeledPoint;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class YearPrediction {
 
     public static void main(String[] args) throws Exception {
-        HotnessPrediction logisticR = new HotnessPrediction();
+        YearPrediction logisticR = new YearPrediction();
         String master = args[0];
         logisticR.run(master);
     }
@@ -53,7 +55,7 @@ public class YearPrediction {
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
 
-        JavaRDD<String> trainingDecade = sc.textFile(trainingPath0)
+        JavaRDD<String> decadeTextData = sc.textFile(trainingPath0)
                 .union(sc.textFile(trainingPath1))
                 .union(sc.textFile(trainingPath2))
                 .union(sc.textFile(trainingPath3))
@@ -62,9 +64,8 @@ public class YearPrediction {
                 .union(sc.textFile(trainingPath6))
                 .union(sc.textFile(trainingPath7))
                 .union(sc.textFile(trainingPath8))
-                .union(sc.textFile(trainingPath9));
-
-        JavaRDD<String> testingDecade = sc.textFile(testPath0)
+                .union(sc.textFile(trainingPath9))
+                .union(sc.textFile(testPath0))
                 .union(sc.textFile(testPath1))
                 .union(sc.textFile(testPath2))
                 .union(sc.textFile(testPath3))
@@ -75,7 +76,7 @@ public class YearPrediction {
                 .union(sc.textFile(testPath8))
                 .union(sc.textFile(testPath9));
 
-        JavaRDD<LabeledPoint> trainingData = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
+        JavaRDD<LabeledPoint> dataByIndividualYear = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
                     double[] points = new double[tags.length + 2];
@@ -96,61 +97,120 @@ public class YearPrediction {
                         indices[i] = indexArray.get(i);
                     }
 
-                    double isHot = 0.0;
-                    if(song.getArtistHotttnesss() > 0.80) {
-                        isHot = 1.0;
+                    double yearMapped = 0.0;
+
+                    switch(song.getYear()) {
+                        case 1990: yearMapped = 1.0; break;
+                        case 1991: yearMapped = 2.0; break;
+                        case 1992: yearMapped = 3.0; break;
+                        case 1993: yearMapped = 4.0; break;
+                        case 1994: yearMapped = 5.0; break;
+                        case 1995: yearMapped = 6.0; break;
+                        case 1996: yearMapped = 7.0; break;
+                        case 1997: yearMapped = 8.0; break;
+                        case 1998: yearMapped = 9.0; break;
+                        case 1999: yearMapped = 10.0; break;
+                        case 2000: yearMapped = 11.0; break;
+                        case 2001: yearMapped = 12.0; break;
+                        case 2002: yearMapped = 13.0; break;
+                        case 2003: yearMapped = 14.0; break;
+                        case 2004: yearMapped = 15.0; break;
+                        case 2005: yearMapped = 16.0; break;
+                        case 2006: yearMapped = 17.0; break;
+                        case 2007: yearMapped = 18.0; break;
+                        case 2008: yearMapped = 19.0; break;
+                        case 2009: yearMapped = 20.0; break;
                     }
 
-                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(yearMapped, Vectors.sparse(2500, indices, points));
                 });
 
-        JavaRDD<LabeledPoint> testingData = testingDecade.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
-            double[] tags = song.getArtistTags();
-            double[] points = new double[tags.length + 2];
-            ArrayList<Integer> indexArray = new ArrayList<Integer>();
-            int[] indices = new int[tags.length + 2];
+        JavaRDD<LabeledPoint> dataGroupedByTwoYears = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo)
+                .map((EnhancedSongInfo song) -> {
+                    double[] tags = song.getArtistTags();
+                    double[] points = new double[tags.length + 2];
+                    ArrayList<Integer> indexArray = new ArrayList<Integer>();
+                    int[] indices = new int[tags.length + 2];
 
-            for(int i=0; i<tags.length; i++) {
-                points[i] = tags[i];
-                indexArray.add((int)tags[i]);
-            }
+                    for(int i=0; i<tags.length; i++) {
+                        points[i] = tags[i];
+                        indexArray.add((int)tags[i]);
+                    }
 
-            points[points.length-2] = song.getArtistFamiliarity();
-            indexArray.add(points.length-2);
-            points[points.length-1] = song.getDuration();
-            indexArray.add(points.length-1);
+                    points[points.length-2] = song.getArtistFamiliarity();
+                    indexArray.add(points.length-2);
+                    points[points.length-1] = song.getDuration();
+                    indexArray.add(points.length-1);
 
-            for(int i=0; i<indexArray.size(); i++) {
-                indices[i] = indexArray.get(i);
-            }
+                    for(int i=0; i<indexArray.size(); i++) {
+                        indices[i] = indexArray.get(i);
+                    }
 
+                    double yearMapped = 0.0;
 
-            double isHot = 0.0;
-            if(song.getArtistHotttnesss() > 0.80) {
-                isHot = 1.0;
-            }
+                    switch(song.getYear()) {
+                        case 1990: yearMapped = 1.0; break;
+                        case 1991: yearMapped = 1.0; break;
+                        case 1992: yearMapped = 2.0; break;
+                        case 1993: yearMapped = 2.0; break;
+                        case 1994: yearMapped = 3.0; break;
+                        case 1995: yearMapped = 3.0; break;
+                        case 1996: yearMapped = 4.0; break;
+                        case 1997: yearMapped = 4.0; break;
+                        case 1998: yearMapped = 5.0; break;
+                        case 1999: yearMapped = 5.0; break;
+                        case 2000: yearMapped = 6.0; break;
+                        case 2001: yearMapped = 6.0; break;
+                        case 2002: yearMapped = 7.0; break;
+                        case 2003: yearMapped = 7.0; break;
+                        case 2004: yearMapped = 8.0; break;
+                        case 2005: yearMapped = 8.0; break;
+                        case 2006: yearMapped = 9.0; break;
+                        case 2007: yearMapped = 9.0; break;
+                        case 2008: yearMapped = 10.0; break;
+                        case 2009: yearMapped = 10.0; break;
+                    }
 
-            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
-        });
+                    return new LabeledPoint(yearMapped, Vectors.sparse(2500, indices, points));
+                });
 
-        trainingData.cache();
+        JavaRDD<LabeledPoint> trainingDataByIndividualYear = dataByIndividualYear.sample(false, 0.6);
+        trainingDataByIndividualYear.cache();
+        JavaRDD<LabeledPoint> testingDataByIndividualYear = dataByIndividualYear.subtract(trainingDataByIndividualYear);
 
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(2).run(trainingData.rdd());
+        final LogisticRegressionModel dataByYearModel = new LogisticRegressionWithLBFGS().setNumClasses(21).run(trainingDataByIndividualYear.rdd());
 
-        JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
+        JavaRDD<LabeledPoint> trainingDataByTwoYears = dataGroupedByTwoYears.sample(false, 0.6);
+        trainingDataByTwoYears.cache();
+        JavaRDD<LabeledPoint> testingDataByTwoYears = dataByIndividualYear.subtract(trainingDataByTwoYears);
+
+        final LogisticRegressionModel dataByTwoYearsModel = new LogisticRegressionWithLBFGS().setNumClasses(11).run(trainingDataByTwoYears.rdd());
+
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsByIndividualYear = testingDataByIndividualYear.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
-                        return new Tuple2<Object, Object>(model.predict(p.features()), p.label());
+                        return new Tuple2<Object, Object>(dataByYearModel.predict(p.features()), p.label());
                     }
                 }
         );
 
-        MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
-        double accuracy = metrics.weightedPrecision();
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsByTwoYears = testingDataByTwoYears.map(
+                new Function<LabeledPoint, Tuple2<Object, Object>>() {
+                    public Tuple2<Object, Object> call(LabeledPoint p) {
+                        return new Tuple2<Object, Object>(dataByTwoYearsModel.predict(p.features()), p.label());
+                    }
+                }
+        );
 
-        //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
+        MulticlassMetrics metricsByIndividualYear = new MulticlassMetrics(predictionAndLabelsByIndividualYear.rdd());
+        double accuracyByIndividualYear = metricsByIndividualYear.weightedPrecision();
 
-        System.out.println("Accuracy = " + accuracy);
+        System.out.println("Accuracy for individual year prediction = " + accuracyByIndividualYear);
+
+        MulticlassMetrics metricsByTwoYears = new MulticlassMetrics(predictionAndLabelsByTwoYears.rdd());
+        double accuracyByTwoYears = metricsByTwoYears.weightedPrecision();
+
+        System.out.println("Accuracy for within one year prediction = " + accuracyByTwoYears);
 
     }
 
