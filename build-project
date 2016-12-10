@@ -2,11 +2,11 @@
 set -e
 set -x
 # Do our mini example first
-cd mini-complete-example
+#cd mini-complete-example
 #./sbt/sbt clean compile package
 #./sbt/sbt clean
-echo $PWD && mvn clean && mvn compile
-cd ..
+#echo $PWD && mvn clean && mvn compile
+#cd ..
 # Run the tests
 export SPARK_HOME=./spark-2.0.2-bin-hadoop2.7/
 ./sbt/sbt compile package assembly

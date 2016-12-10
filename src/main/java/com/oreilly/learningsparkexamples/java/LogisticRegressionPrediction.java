@@ -38,13 +38,54 @@ public class LogisticRegressionPrediction {
     }
 
     public static void run(String master) {
-        String trainingPath = "output/OutputExample/1481257251529/2000";
-        String testPath = "output/OutputExample/1481257251529/2001";
+        String trainingPath0 = "output/OutputExample/fullData/1990";
+        String trainingPath1 = "output/OutputExample/fullData/1991";
+        String trainingPath2 = "output/OutputExample/fullData/1992";
+        String trainingPath3 = "output/OutputExample/fullData/1993";
+        String trainingPath4 = "output/OutputExample/fullData/1994";
+        String trainingPath5 = "output/OutputExample/fullData/1995";
+        String trainingPath6 = "output/OutputExample/fullData/1996";
+        String trainingPath7 = "output/OutputExample/fullData/1997";
+        String trainingPath8 = "output/OutputExample/fullData/1998";
+        String trainingPath9 = "output/OutputExample/fullData/1999";
+
+        String testPath0 = "output/OutputExample/fullData/2000";
+        String testPath1 = "output/OutputExample/fullData/2001";
+        String testPath2 = "output/OutputExample/fullData/2002";
+        String testPath3 = "output/OutputExample/fullData/2003";
+        String testPath4 = "output/OutputExample/fullData/2004";
+        String testPath5 = "output/OutputExample/fullData/2005";
+        String testPath6 = "output/OutputExample/fullData/2006";
+        String testPath7 = "output/OutputExample/fullData/2007";
+        String testPath8 = "output/OutputExample/fullData/2008";
+        String testPath9 = "output/OutputExample/fullData/2009";
 
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
 
-        JavaRDD<LabeledPoint> trainingData = sc.textFile(trainingPath).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+        JavaRDD<String> trainingDecade = sc.textFile(trainingPath0)
+                .union(sc.textFile(trainingPath1))
+                .union(sc.textFile(trainingPath2))
+                .union(sc.textFile(trainingPath3))
+                .union(sc.textFile(trainingPath4))
+                .union(sc.textFile(trainingPath5))
+                .union(sc.textFile(trainingPath6))
+                .union(sc.textFile(trainingPath7))
+                .union(sc.textFile(trainingPath8))
+                .union(sc.textFile(trainingPath9));
+
+        JavaRDD<String> testingDecade = sc.textFile(testPath0)
+                .union(sc.textFile(testPath1))
+                .union(sc.textFile(testPath2))
+                .union(sc.textFile(testPath3))
+                .union(sc.textFile(testPath4))
+                .union(sc.textFile(testPath5))
+                .union(sc.textFile(testPath6))
+                .union(sc.textFile(testPath7))
+                .union(sc.textFile(testPath8))
+                .union(sc.textFile(testPath9));
+
+        JavaRDD<LabeledPoint> trainingData = trainingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
             double isHot = 0.0;
             if(song.getArtistHotttnesss() >= 0.75) {
@@ -55,7 +96,7 @@ public class LogisticRegressionPrediction {
             return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
-        JavaRDD<LabeledPoint> testingData = sc.textFile(trainingPath).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+        JavaRDD<LabeledPoint> testingData = testingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
             return new LabeledPoint(0.0, Vectors.dense(points));
         });
