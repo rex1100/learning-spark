@@ -103,18 +103,16 @@ public class YearPrediction {
         JavaRDD<LabeledPoint> dataByIndividualYear = decadeTextData.map(YearPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 3];
+                    double[] points = new double[tags.length + 2];
                     ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 3];
+                    int[] indices = new int[tags.length + 2];
 
                     for(int i=0; i<tags.length; i++) {
                         points[i] = tags[i];
                         indexArray.add((int)tags[i]);
                     }
 
-                    points[points.length-3] = song.getArtistHotttnesss();
-                    indexArray.add(points.length-3);
-                    points[points.length-2] = song.getArtistFamiliarity();
+                    points[points.length-2] = song.getArtistHotttnesss();
                     indexArray.add(points.length-2);
                     points[points.length-1] = song.getDuration();
                     indexArray.add(points.length-1);
@@ -191,18 +189,16 @@ public class YearPrediction {
         JavaRDD<LabeledPoint> dataGroupedByFiveYears = decadeTextData.map(YearPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 3];
+                    double[] points = new double[tags.length + 2];
                     ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 3];
+                    int[] indices = new int[tags.length + 2];
 
                     for(int i=0; i<tags.length; i++) {
                         points[i] = tags[i];
                         indexArray.add((int)tags[i]);
                     }
 
-                    points[points.length-3] = song.getArtistHotttnesss();
-                    indexArray.add(points.length-3);
-                    points[points.length-2] = song.getArtistFamiliarity();
+                    points[points.length-2] = song.getArtistHotttnesss();
                     indexArray.add(points.length-2);
                     points[points.length-1] = song.getDuration();
                     indexArray.add(points.length-1);
@@ -279,18 +275,16 @@ public class YearPrediction {
         JavaRDD<LabeledPoint> dataGroupedByTenYears = decadeTextData.map(YearPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 3];
+                    double[] points = new double[tags.length + 2];
                     ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 3];
+                    int[] indices = new int[tags.length + 2];
 
                     for(int i=0; i<tags.length; i++) {
                         points[i] = tags[i];
                         indexArray.add((int)tags[i]);
                     }
 
-                    points[points.length-3] = song.getArtistHotttnesss();
-                    indexArray.add(points.length-3);
-                    points[points.length-2] = song.getArtistFamiliarity();
+                    points[points.length-2] = song.getArtistHotttnesss();
                     indexArray.add(points.length-2);
                     points[points.length-1] = song.getDuration();
                     indexArray.add(points.length-1);

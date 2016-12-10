@@ -38,6 +38,8 @@ public class PlayCountPopularityPrediction {
         String trainingPath7 = "output/OutputExample/fullData/1997";
         String trainingPath8 = "output/OutputExample/fullData/1998";
         String trainingPath9 = "output/OutputExample/fullData/1999";
+        //Songs: 32344
+        //Total Plays: 20347042
 
         String testPath0 = "output/OutputExample/fullData/2000";
         String testPath1 = "output/OutputExample/fullData/2001";
@@ -49,6 +51,8 @@ public class PlayCountPopularityPrediction {
         String testPath7 = "output/OutputExample/fullData/2007";
         String testPath8 = "output/OutputExample/fullData/2008";
         String testPath9 = "output/OutputExample/fullData/2009";
+        //Songs: 75362
+        //Total Plays: 73656621
 
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
