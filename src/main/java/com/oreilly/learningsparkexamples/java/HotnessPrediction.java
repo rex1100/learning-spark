@@ -121,7 +121,7 @@ public class HotnessPrediction {
                 isHot = 1.0;
             }
 
-            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+            return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
         });
 
         JavaRDD<LabeledPoint> testingData = testingDecade.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
@@ -150,7 +150,7 @@ public class HotnessPrediction {
                 isHot = 1.0;
             }
 
-            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+            return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
         });
 
         trainingData.cache();
@@ -199,7 +199,7 @@ public class HotnessPrediction {
                         isHot--;
                     }
 
-                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
                 });
 
         JavaRDD<LabeledPoint> testingDataWithMultiValueHotness = testingDecade.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
@@ -229,7 +229,7 @@ public class HotnessPrediction {
                 isHot--;
             }
 
-            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+            return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
         });
 
         trainingDataWithMultiValueHotness.cache();
