@@ -114,19 +114,21 @@ public class LogisticRegressionPrediction {
         trainingData.cache();
 
         final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(5).run(trainingData.rdd());
+        ArrayList<Double> misses = new ArrayList<Double>();
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         Double prediction = model.predict(p.features());
-                        System.out.println("Features: " + p.features().toString() + " Prediction: " + prediction + " Actual: " + p.toString());
+                        double actual = p.label();
+                        misses.add(Math.abs(actual - prediction));
                         return new Tuple2<Object, Object>(prediction, p.label());
                     }
                 }
         );
 
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
-        double accuracy = metrics.accuracy();
+        double accuracy = metrics.weightedPrecision();
 
         //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
 
