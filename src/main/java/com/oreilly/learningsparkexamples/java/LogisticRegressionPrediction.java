@@ -86,26 +86,40 @@ public class LogisticRegressionPrediction {
                 .union(sc.textFile(testPath9));
 
         JavaRDD<LabeledPoint> trainingData = trainingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
-            double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            double isHot = Math.round(song.getArtistHotttnesss() * 10.0) - 1;
+            double[] points = {song.getArtistFamiliarity(), song.getDuration(), };
+            double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
+            if(isHot > 0) {
+                isHot--;
+            }
+
+            if(isHot < 0 && isHot > 4) {
+                isHot = 0.0;
+            }
             return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
         JavaRDD<LabeledPoint> testingData = testingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            double isHot = Math.round(song.getArtistHotttnesss() * 10.0) - 1;
+            double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
+            if(isHot > 0) {
+                isHot--;
+            }
+
+            if(isHot < 0 && isHot > 4) {
+                isHot = 0.0;
+            }
             return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
         trainingData.cache();
 
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(10).run(trainingData.rdd());
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(5).run(trainingData.rdd());
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         Double prediction = model.predict(p.features());
-                        //System.out.println("Features: " + p.features().toString() + " Prediction: " + prediction + " Actual: " + p.toString());
+                        System.out.println("Features: " + p.features().toString() + " Prediction: " + prediction + " Actual: " + p.toString());
                         return new Tuple2<Object, Object>(prediction, p.label());
                     }
                 }
