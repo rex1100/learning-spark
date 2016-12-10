@@ -156,23 +156,25 @@ public class JoinSongInfo {
                     artistTerms.col("valueList").as("artistTerms"));
 
 
-    System.out.println(songInfo
+    System.out.println("total: "+songInfo
             .join(songPlays, songInfo.col("songId").equalTo(songPlays.col("songId")))
-            .filter(songInfo.col("year").equalTo("1990")
-                    .or(songInfo.col("year").equalTo("1991"))
-                    .or(songInfo.col("year").equalTo("1992"))
-                    .or(songInfo.col("year").equalTo("1993"))
-                    .or(songInfo.col("year").equalTo("1994"))
-                    .or(songInfo.col("year").equalTo("1995"))
-                    .or(songInfo.col("year").equalTo("1996"))
-                    .or(songInfo.col("year").equalTo("1997"))
-                    .or(songInfo.col("year").equalTo("1998"))
-                    .or(songInfo.col("year").equalTo("1999")))
+            .filter(songInfo.col("year").equalTo("2000")
+                    .or(songInfo.col("year").equalTo("2001"))
+                    .or(songInfo.col("year").equalTo("2002"))
+                    .or(songInfo.col("year").equalTo("2003"))
+                    .or(songInfo.col("year").equalTo("2004"))
+                    .or(songInfo.col("year").equalTo("2005"))
+                    .or(songInfo.col("year").equalTo("2006"))
+                    .or(songInfo.col("year").equalTo("2007"))
+                    .or(songInfo.col("year").equalTo("2008"))
+                    .or(songInfo.col("year").equalTo("2009")))
             .select(songPlays.col("playCount"))
             .toJavaRDD()
             .map(row -> Integer.parseInt(row.toString().replace("[","").replace("]","")))
             .reduce((x,y) -> (Integer)x +(Integer)y)
             .toString());
+
+    // 90's total plays: 20347042
 //            .saveAsTextFile("output/songs/"+ Instant.now().toEpochMilli());
 //            .join(artistLists, songInfo.col("artistId").equalTo(artistLists.col("artistId")))
 //            // map the cols in a order that we know

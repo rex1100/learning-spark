@@ -163,8 +163,22 @@ public class LogisticRegressionPrediction {
         );
 
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
+
+        // Precision is the number of correct identifications the program has made
+        // if it says that 100 songs are 'hot' but then actually only 70 songs were 'hot' (ie. 30 false positives)
+        // the precision will be 70%
+        // https://en.wikipedia.org/wiki/Precision_and_recall
         double accuracy = metrics.weightedPrecision();
 
+        // Recall is the number of correct identifications the program has made in comparison to the real total
+        // if the programs says 100 songs are 'hot' but then actually only 70 songs that the program labeled as 'hot'
+        // where 'hot' then 70 will be the top half of the fraction. Then if there were actually 140 songs that were 'hot'
+        // in the dataset then the recall will be 50%
+        metrics.weightedRecall();
+
+        // F-Measure is just the combined precision and recall, it's a harmonic mean
+        // https://en.wikipedia.org/wiki/Precision_and_recall#F-measure
+        metrics.weightedFMeasure();
         //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
 
         System.out.println("Accuracy = " + accuracy);
