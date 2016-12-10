@@ -119,10 +119,8 @@ public class LogisticRegressionPrediction {
         JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
-                        Double prediction = model.predict(p.features());
-                        double actual = p.label();
-                        misses.add(Math.abs(actual - prediction));
-                        return new Tuple2<Object, Object>(prediction, p.label());
+                        misses.add(model.predict(p.features()) - p.label());
+                        return new Tuple2<Object, Object>(model.predict(p.features()), p.label());
                     }
                 }
         );
