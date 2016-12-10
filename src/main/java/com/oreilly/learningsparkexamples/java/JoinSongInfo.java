@@ -156,28 +156,47 @@ public class JoinSongInfo {
                     artistTerms.col("valueList").as("artistTerms"));
 
 
-    songInfo
+    System.out.println(songInfo
             .join(songPlays, songInfo.col("songId").equalTo(songPlays.col("songId")))
-            .join(artistLists, songInfo.col("artistId").equalTo(artistLists.col("artistId")))
-            // map the cols in a order that we know
-            .select(songInfo.col("year"),
-                    songInfo.col("trackId"),
-                    songInfo.col("title"),
-                    songInfo.col("songId"),
-                    songInfo.col("release"),
-                    songInfo.col("artistId"),
-                    songInfo.col("artistMbid"),
-                    songInfo.col("artistName"),
-                    songInfo.col("duration"),
-                    songInfo.col("artistFamiliarity"),
-                    songInfo.col("artistHotttnesss"),
-                    songPlays.col("playCount"),
-                    artistLists.col("artistTags"),
-                    artistLists.col("artistTerms"))
-            .sort(songInfo.col("year"))
+            .filter(songInfo.col("year").equalTo("1990")
+                    .or(songInfo.col("year").equalTo("1991"))
+                    .or(songInfo.col("year").equalTo("1992"))
+                    .or(songInfo.col("year").equalTo("1993"))
+                    .or(songInfo.col("year").equalTo("1994"))
+                    .or(songInfo.col("year").equalTo("1995"))
+                    .or(songInfo.col("year").equalTo("1996"))
+                    .or(songInfo.col("year").equalTo("1997"))
+                    .or(songInfo.col("year").equalTo("1998"))
+                    .or(songInfo.col("year").equalTo("1999")))
+            .select(songPlays.col("playCount"))
             .toJavaRDD()
-            .coalesce(1)
-            .saveAsTextFile("output/songs/"+ Instant.now().toEpochMilli());
+            .map(row -> Integer.parseInt(row.toString().replace("[","").replace("]","")))
+            .reduce((x,y) -> (Integer)x +(Integer)y)
+            .toString());
+//            .saveAsTextFile("output/songs/"+ Instant.now().toEpochMilli());
+//            .join(artistLists, songInfo.col("artistId").equalTo(artistLists.col("artistId")))
+//            // map the cols in a order that we know
+//            .select(songInfo.col("year"),
+//                    songInfo.col("trackId"),
+//                    songInfo.col("title"),
+//                    songInfo.col("songId"),
+//                    songInfo.col("release"),
+//                    songInfo.col("artistId"),
+//                    songInfo.col("artistMbid"),
+//                    songInfo.col("artistName"),
+//                    songInfo.col("duration"),
+//                    songInfo.col("artistFamiliarity"),
+//                    songInfo.col("artistHotttnesss"),
+//                    songPlays.col("playCount"),
+//                    artistLists.col("artistTags"),
+//                    artistLists.col("artistTerms"))
+//            .sort(songInfo.col("year"))
+//            .toJavaRDD()
+//            .coalesce(1)
+//            .saveAsTextFile("output/songs/"+ Instant.now().toEpochMilli());
+
+    indexer.fit(tags).transform(tags).toJavaRDD().coalesce(1).saveAsTextFile("output/term_mapping/"+ Instant.now().toEpochMilli());
+    indexer.fit(terms).transform(terms).toJavaRDD().coalesce(1).saveAsTextFile("output/tag_mapping/"+ Instant.now().toEpochMilli());
   }
 
   public static JavaRDD<SongPlays> createSongPlaysRDD(JavaRDD<String> csvFile) {
