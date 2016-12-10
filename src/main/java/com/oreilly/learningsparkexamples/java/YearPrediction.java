@@ -76,6 +76,7 @@ public class YearPrediction {
                 .union(sc.textFile(trainingPath8))
                 .union(sc.textFile(trainingPath9))
                 .union(sc.textFile(trainingPath10))
+                .union(sc.textFile(trainingPath11))
                 .union(sc.textFile(trainingPath12))
                 .union(sc.textFile(trainingPath13))
                 .union(sc.textFile(trainingPath14))
@@ -157,10 +158,10 @@ public class YearPrediction {
                         case 2009: yearMapped = 30.0; break;
                     }
 
-                    return new LabeledPoint(yearMapped, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
                 });
 
-        JavaRDD<LabeledPoint> trainingDataByIndividualYear = dataByIndividualYear.sample(false, 0.6);
+        JavaRDD<LabeledPoint> trainingDataByIndividualYear = dataByIndividualYear.sample(false, 0.75);
         trainingDataByIndividualYear.cache();
         JavaRDD<LabeledPoint> testingDataByIndividualYear = dataByIndividualYear.subtract(trainingDataByIndividualYear);
 
@@ -245,10 +246,10 @@ public class YearPrediction {
                         case 2009: yearMapped = 6.0; break;
                     }
 
-                    return new LabeledPoint(yearMapped, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
                 });
 
-        JavaRDD<LabeledPoint> trainingDataByFiveYears = dataGroupedByFiveYears.sample(false, 0.6);
+        JavaRDD<LabeledPoint> trainingDataByFiveYears = dataGroupedByFiveYears.sample(false, 0.75);
         trainingDataByFiveYears.cache();
         JavaRDD<LabeledPoint> testingDataByFiveYears = dataGroupedByFiveYears.subtract(trainingDataByFiveYears);
 
@@ -336,7 +337,7 @@ public class YearPrediction {
                     return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
                 });
 
-        JavaRDD<LabeledPoint> trainingDataByTenYears = dataGroupedByTenYears.sample(false, 0.6);
+        JavaRDD<LabeledPoint> trainingDataByTenYears = dataGroupedByTenYears.sample(false, 0.75);
         trainingDataByTenYears.cache();
         JavaRDD<LabeledPoint> testingDataByTenYears = dataGroupedByTenYears.subtract(trainingDataByTenYears);
 

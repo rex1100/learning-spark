@@ -38,6 +38,16 @@ public class HotnessPrediction {
         String trainingPath7 = "output/OutputExample/fullData/1997";
         String trainingPath8 = "output/OutputExample/fullData/1998";
         String trainingPath9 = "output/OutputExample/fullData/1999";
+        String trainingPath10 = "output/OutputExample/fullData/1980";
+        String trainingPath11 = "output/OutputExample/fullData/1981";
+        String trainingPath12 = "output/OutputExample/fullData/1982";
+        String trainingPath13 = "output/OutputExample/fullData/1983";
+        String trainingPath14 = "output/OutputExample/fullData/1984";
+        String trainingPath15 = "output/OutputExample/fullData/1985";
+        String trainingPath16 = "output/OutputExample/fullData/1986";
+        String trainingPath17 = "output/OutputExample/fullData/1987";
+        String trainingPath18 = "output/OutputExample/fullData/1988";
+        String trainingPath19 = "output/OutputExample/fullData/1989";
 
         String testPath0 = "output/OutputExample/fullData/2000";
         String testPath1 = "output/OutputExample/fullData/2001";
@@ -62,7 +72,17 @@ public class HotnessPrediction {
                 .union(sc.textFile(trainingPath6))
                 .union(sc.textFile(trainingPath7))
                 .union(sc.textFile(trainingPath8))
-                .union(sc.textFile(trainingPath9));
+                .union(sc.textFile(trainingPath9))
+                .union(sc.textFile(trainingPath10))
+                .union(sc.textFile(trainingPath11))
+                .union(sc.textFile(trainingPath12))
+                .union(sc.textFile(trainingPath13))
+                .union(sc.textFile(trainingPath14))
+                .union(sc.textFile(trainingPath15))
+                .union(sc.textFile(trainingPath16))
+                .union(sc.textFile(trainingPath17))
+                .union(sc.textFile(trainingPath18))
+                .union(sc.textFile(trainingPath19));
 
         JavaRDD<String> testingDecade = sc.textFile(testPath0)
                 .union(sc.textFile(testPath1))
@@ -148,8 +168,6 @@ public class HotnessPrediction {
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
         double accuracy = metrics.weightedPrecision();
 
-        //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
-
         System.out.println("Accuracy = " + accuracy);
 
 
@@ -228,8 +246,6 @@ public class HotnessPrediction {
 
         MulticlassMetrics multiValueMetrics = new MulticlassMetrics(predictionAndLabelsWithMultiValueHotness.rdd());
         double multiValueAccuracy = multiValueMetrics.weightedPrecision();
-
-        //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
 
         System.out.println("Accuracy = " + multiValueAccuracy);
 
