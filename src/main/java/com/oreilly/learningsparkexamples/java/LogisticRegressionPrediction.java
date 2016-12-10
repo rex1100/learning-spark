@@ -107,12 +107,12 @@ public class LogisticRegressionPrediction {
             }
 
 
-            double isHot = Math.round(song.getArtistHotttnesss() * 3.0);
+            double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
             if(isHot > 0) {
                 isHot--;
             }
 
-            if(isHot < 0 && isHot > 2) {
+            if(isHot < 0 && isHot > 4) {
                 isHot = 0.0;
             }
             return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
@@ -139,12 +139,12 @@ public class LogisticRegressionPrediction {
             }
 
 
-            double isHot = Math.round(song.getArtistHotttnesss() * 3.0);
+            double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
             if(isHot > 0) {
                 isHot--;
             }
 
-            if(isHot < 0 && isHot > 2) {
+            if(isHot < 0 && isHot > 4) {
                 isHot = 0.0;
             }
             return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
@@ -152,7 +152,7 @@ public class LogisticRegressionPrediction {
 
         trainingData.cache();
 
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(3).run(trainingData.rdd());
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(5).run(trainingData.rdd());
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
