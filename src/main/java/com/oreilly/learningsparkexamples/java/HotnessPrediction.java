@@ -247,7 +247,88 @@ public class HotnessPrediction {
         MulticlassMetrics multiValueMetrics = new MulticlassMetrics(predictionAndLabelsWithMultiValueHotness.rdd());
         double multiValueAccuracy = multiValueMetrics.weightedPrecision();
 
-        System.out.println("Accuracy = " + multiValueAccuracy);
+        System.out.println("Accuracy with multiple hotness values = " + multiValueAccuracy);
+
+
+
+
+        JavaRDD<String> decadeTextData = sc.textFile(trainingPath0)
+                .union(sc.textFile(trainingPath1))
+                .union(sc.textFile(trainingPath2))
+                .union(sc.textFile(trainingPath3))
+                .union(sc.textFile(trainingPath4))
+                .union(sc.textFile(trainingPath5))
+                .union(sc.textFile(trainingPath6))
+                .union(sc.textFile(trainingPath7))
+                .union(sc.textFile(trainingPath8))
+                .union(sc.textFile(trainingPath9))
+                .union(sc.textFile(trainingPath10))
+                .union(sc.textFile(trainingPath11))
+                .union(sc.textFile(trainingPath12))
+                .union(sc.textFile(trainingPath13))
+                .union(sc.textFile(trainingPath14))
+                .union(sc.textFile(trainingPath15))
+                .union(sc.textFile(trainingPath16))
+                .union(sc.textFile(trainingPath17))
+                .union(sc.textFile(trainingPath18))
+                .union(sc.textFile(trainingPath19))
+                .union(sc.textFile(testPath0))
+                .union(sc.textFile(testPath1))
+                .union(sc.textFile(testPath2))
+                .union(sc.textFile(testPath3))
+                .union(sc.textFile(testPath4))
+                .union(sc.textFile(testPath5))
+                .union(sc.textFile(testPath6))
+                .union(sc.textFile(testPath7))
+                .union(sc.textFile(testPath8))
+                .union(sc.textFile(testPath9));
+
+        JavaRDD<LabeledPoint> decadeDataExcludingFamiliarity = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
+            double[] tags = song.getArtistTags();
+            double[] points = new double[tags.length + 1];
+            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+            int[] indices = new int[tags.length + 1];
+
+            for(int i=0; i<tags.length; i++) {
+                points[i] = tags[i];
+                indexArray.add((int)tags[i]);
+            }
+
+            points[points.length-1] = song.getDuration();
+            indexArray.add(points.length-1);
+
+            for(int i=0; i<indexArray.size(); i++) {
+                indices[i] = indexArray.get(i);
+            }
+
+
+            double isHot = Math.round(song.getArtistHotttnesss() * 10.0);
+
+            if(isHot > 0) {
+                isHot--;
+            }
+
+            return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
+        });
+
+        JavaRDD<LabeledPoint> trainingDataMinusFamiliarity = decadeDataExcludingFamiliarity.sample(false, 0.75);
+        trainingDataMinusFamiliarity.cache();
+        JavaRDD<LabeledPoint> testingDataMinusFamiliarity = decadeDataExcludingFamiliarity.subtract(trainingDataMinusFamiliarity);
+
+        final LogisticRegressionModel dataMinusFamiliarityModel = new LogisticRegressionWithLBFGS().setNumClasses(31).run(trainingDataMinusFamiliarity.rdd());
+
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsMinusFamiliarity = testingDataMinusFamiliarity.map(
+                new Function<LabeledPoint, Tuple2<Object, Object>>() {
+                    public Tuple2<Object, Object> call(LabeledPoint p) {
+                        return new Tuple2<Object, Object>(dataMinusFamiliarityModel.predict(p.features()), p.label());
+                    }
+                }
+        );
+
+        MulticlassMetrics metricsMinusFamiliarity = new MulticlassMetrics(predictionAndLabelsMinusFamiliarity.rdd());
+        double accuracyMinusFamiliarity = metricsMinusFamiliarity.weightedPrecision();
+
+        System.out.println("Accuracy for hotness prediction without artist familiarity = " + accuracyMinusFamiliarity);
 
     }
 
