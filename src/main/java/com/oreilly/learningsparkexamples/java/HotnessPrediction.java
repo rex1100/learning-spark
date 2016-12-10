@@ -63,7 +63,7 @@ public class HotnessPrediction {
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
 
-        JavaRDD<String> trainingDecade = sc.textFile(trainingPath0)
+        /*JavaRDD<String> trainingDecade = sc.textFile(trainingPath0)
                 .union(sc.textFile(trainingPath1))
                 .union(sc.textFile(trainingPath2))
                 .union(sc.textFile(trainingPath3))
@@ -229,6 +229,12 @@ public class HotnessPrediction {
                 isHot--;
             }
 
+            if(isHot > 9) {
+                isHot = 9.0;
+            } else if(isHot < 0) {
+                isHot = 0.0;
+            }
+
             return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
         });
 
@@ -247,7 +253,7 @@ public class HotnessPrediction {
         MulticlassMetrics multiValueMetrics = new MulticlassMetrics(predictionAndLabelsWithMultiValueHotness.rdd());
         double multiValueAccuracy = multiValueMetrics.weightedPrecision();
 
-        System.out.println("Accuracy with multiple hotness values = " + multiValueAccuracy);
+        System.out.println("Accuracy with multiple hotness values = " + multiValueAccuracy);*/
 
 
 
@@ -283,7 +289,54 @@ public class HotnessPrediction {
                 .union(sc.textFile(testPath8))
                 .union(sc.textFile(testPath9));
 
-        JavaRDD<LabeledPoint> decadeDataExcludingFamiliarity = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
+        /*JavaRDD<LabeledPoint> decadeDataExcludingFamiliarity = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
+            double[] tags = song.getArtistTags();
+            double[] points = new double[tags.length + 1];
+            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+            int[] indices = new int[tags.length + 1];
+
+            for(int i=0; i<tags.length; i++) {
+                points[i] = tags[i];
+                indexArray.add((int)tags[i]);
+            }
+
+            points[points.length-1] = song.getDuration();
+            indexArray.add(points.length-1);
+
+            for(int i=0; i<indexArray.size(); i++) {
+                indices[i] = indexArray.get(i);
+            }
+
+
+            double isHot = 0.0;
+            if(song.getArtistHotttnesss() > 0.80) {
+                isHot = 1.0;
+            }
+
+            return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
+        });
+
+        JavaRDD<LabeledPoint> trainingDataMinusFamiliarity = decadeDataExcludingFamiliarity.sample(false, 0.75);
+        trainingDataMinusFamiliarity.cache();
+        JavaRDD<LabeledPoint> testingDataMinusFamiliarity = decadeDataExcludingFamiliarity.subtract(trainingDataMinusFamiliarity);
+
+        final LogisticRegressionModel dataMinusFamiliarityModel = new LogisticRegressionWithLBFGS().setNumClasses(2).run(trainingDataMinusFamiliarity.rdd());
+
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsMinusFamiliarity = testingDataMinusFamiliarity.map(
+                new Function<LabeledPoint, Tuple2<Object, Object>>() {
+                    public Tuple2<Object, Object> call(LabeledPoint p) {
+                        return new Tuple2<Object, Object>(dataMinusFamiliarityModel.predict(p.features()), p.label());
+                    }
+                }
+        );
+
+        MulticlassMetrics metricsMinusFamiliarity = new MulticlassMetrics(predictionAndLabelsMinusFamiliarity.rdd());
+        double accuracyMinusFamiliarity = metricsMinusFamiliarity.weightedPrecision();
+
+        System.out.println("Accuracy for hotness prediction without artist familiarity = " + accuracyMinusFamiliarity);*/
+
+
+        JavaRDD<LabeledPoint> decadeDataExcludingFamiliarityMV = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
             double[] tags = song.getArtistTags();
             double[] points = new double[tags.length + 1];
             ArrayList<Integer> indexArray = new ArrayList<Integer>();
@@ -308,27 +361,33 @@ public class HotnessPrediction {
                 isHot--;
             }
 
+            if(isHot > 9) {
+                isHot = 9.0;
+            } else if(isHot < 0) {
+                isHot = 0.0;
+            }
+
             return new LabeledPoint(isHot, Vectors.sparse(2350, indices, points));
         });
 
-        JavaRDD<LabeledPoint> trainingDataMinusFamiliarity = decadeDataExcludingFamiliarity.sample(false, 0.75);
-        trainingDataMinusFamiliarity.cache();
-        JavaRDD<LabeledPoint> testingDataMinusFamiliarity = decadeDataExcludingFamiliarity.subtract(trainingDataMinusFamiliarity);
+        JavaRDD<LabeledPoint> trainingDataMinusFamiliarityMV = decadeDataExcludingFamiliarityMV.sample(false, 0.75);
+        trainingDataMinusFamiliarityMV.cache();
+        JavaRDD<LabeledPoint> testingDataMinusFamiliarityMV = decadeDataExcludingFamiliarityMV.subtract(trainingDataMinusFamiliarityMV);
 
-        final LogisticRegressionModel dataMinusFamiliarityModel = new LogisticRegressionWithLBFGS().setNumClasses(31).run(trainingDataMinusFamiliarity.rdd());
+        final LogisticRegressionModel dataMinusFamiliarityModelMV = new LogisticRegressionWithLBFGS().setNumClasses(10).run(trainingDataMinusFamiliarityMV.rdd());
 
-        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsMinusFamiliarity = testingDataMinusFamiliarity.map(
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsMinusFamiliarityMV = testingDataMinusFamiliarityMV.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
-                        return new Tuple2<Object, Object>(dataMinusFamiliarityModel.predict(p.features()), p.label());
+                        return new Tuple2<Object, Object>(dataMinusFamiliarityModelMV.predict(p.features()), p.label());
                     }
                 }
         );
 
-        MulticlassMetrics metricsMinusFamiliarity = new MulticlassMetrics(predictionAndLabelsMinusFamiliarity.rdd());
-        double accuracyMinusFamiliarity = metricsMinusFamiliarity.weightedPrecision();
+        MulticlassMetrics metricsMinusFamiliarityMV = new MulticlassMetrics(predictionAndLabelsMinusFamiliarityMV.rdd());
+        double accuracyMinusFamiliarityMV = metricsMinusFamiliarityMV.weightedPrecision();
 
-        System.out.println("Accuracy for hotness prediction without artist familiarity = " + accuracyMinusFamiliarity);
+        System.out.println("Accuracy for multivalue hotness prediction without artist familiarity = " + accuracyMinusFamiliarityMV);
 
     }
 
