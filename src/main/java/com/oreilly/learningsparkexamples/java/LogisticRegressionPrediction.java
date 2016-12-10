@@ -46,9 +46,11 @@ public class LogisticRegressionPrediction {
 
         JavaRDD<LabeledPoint> trainingData = sc.textFile(trainingPath).map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            double isHot = -1.0;
+            double isHot = 0.0;
             if(song.getArtistHotttnesss() >= 0.75) {
-                isHot = 0.0;
+                isHot = 2.0;
+            } else if(song.getArtistHotttnesss() >= 0.50) {
+                isHot = 1.0;
             }
             return new LabeledPoint(isHot, Vectors.dense(points));
         });
@@ -58,10 +60,12 @@ public class LogisticRegressionPrediction {
             return new LabeledPoint(0.0, Vectors.dense(points));
         });
 
+        trainingData.cache();
 
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(2).run(trainingData.rdd());
 
-        /*JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(3).run(trainingData.rdd());
+
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         Double prediction = model.predict(p.features());
@@ -76,7 +80,7 @@ public class LogisticRegressionPrediction {
 
         model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
         LogisticRegressionModel sameModel = LogisticRegressionModel.load(sc.sc(),
-                "target/tmp/javaLogisticRegressionWithLBFGSModel");*/
+                "target/tmp/javaLogisticRegressionWithLBFGSModel");
 
     }
 
