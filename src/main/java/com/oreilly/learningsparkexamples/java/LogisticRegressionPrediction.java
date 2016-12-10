@@ -87,40 +87,76 @@ public class LogisticRegressionPrediction {
 
         JavaRDD<LabeledPoint> trainingData = trainingDecade.map(LogisticRegressionPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
-            double[] points = {song.getArtistFamiliarity(), song.getDuration(), };
-            double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
+            double[] tags = song.getArtistTags();
+            double[] points = new double[tags.length + 2];
+            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+            int[] indices = new int[tags.length + 2];
+
+            for(int i=0; i<tags.length; i++) {
+                points[i] = tags[i];
+                indexArray.add((int)tags[i]);
+            }
+
+            points[points.length-2] = song.getArtistFamiliarity();
+            indexArray.add(points.length-2);
+            points[points.length-1] = song.getDuration();
+            indexArray.add(points.length-1);
+
+            for(int i=0; i<indexArray.size(); i++) {
+                indices[i] = indexArray.get(i);
+            }
+
+
+            double isHot = Math.round(song.getArtistHotttnesss() * 3.0);
             if(isHot > 0) {
                 isHot--;
             }
 
-            if(isHot < 0 && isHot > 4) {
+            if(isHot < 0 && isHot > 2) {
                 isHot = 0.0;
             }
-            return new LabeledPoint(isHot, Vectors.dense(points));
+            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
         });
 
         JavaRDD<LabeledPoint> testingData = testingDecade.map(LogisticRegressionPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
-            double[] points = {song.getArtistFamiliarity(), song.getDuration()};
-            double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
+            double[] tags = song.getArtistTags();
+            double[] points = new double[tags.length + 2];
+            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+            int[] indices = new int[tags.length + 2];
+
+            for(int i=0; i<tags.length; i++) {
+                points[i] = tags[i];
+                indexArray.add((int)tags[i]);
+            }
+
+            points[points.length-2] = song.getArtistFamiliarity();
+            indexArray.add(points.length-2);
+            points[points.length-1] = song.getDuration();
+            indexArray.add(points.length-1);
+
+            for(int i=0; i<indexArray.size(); i++) {
+                indices[i] = indexArray.get(i);
+            }
+
+
+            double isHot = Math.round(song.getArtistHotttnesss() * 3.0);
             if(isHot > 0) {
                 isHot--;
             }
 
-            if(isHot < 0 && isHot > 4) {
+            if(isHot < 0 && isHot > 2) {
                 isHot = 0.0;
             }
-            return new LabeledPoint(isHot, Vectors.dense(points));
+            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
         });
 
         trainingData.cache();
 
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(5).run(trainingData.rdd());
-        ArrayList<Double> misses = new ArrayList<Double>();
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(3).run(trainingData.rdd());
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
-                        misses.add(model.predict(p.features()) - p.label());
                         return new Tuple2<Object, Object>(model.predict(p.features()), p.label());
                     }
                 }
@@ -141,6 +177,8 @@ public class LogisticRegressionPrediction {
         toSplit = toSplit.replace("WrappedArray", "");
 
         String[] array = toSplit.split(",");
+        String[] tags = array[12].split(";");
+        String[] terms = array[13].split(";");
         return new EnhancedSongInfo(Integer.parseInt(array[0]),
                 array[1],
                 array[2],
@@ -153,7 +191,7 @@ public class LogisticRegressionPrediction {
                 Double.parseDouble(array[9]),
                 Double.parseDouble(array[10]),
                 Integer.parseInt(array[11]),
-                array[12],
-                array[13]);
+                tags,
+                terms);
     }
 }

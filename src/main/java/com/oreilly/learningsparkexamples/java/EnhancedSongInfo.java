@@ -20,10 +20,10 @@ public class EnhancedSongInfo implements Serializable {
     double artistFamiliarity;
     double artistHotttnesss;
     int playCount;
-    String artistTags;
-    String artistTerms;
+    double[] artistTags;
+    double[] artistTerms;
 
-    public EnhancedSongInfo(int year, String trackId, String title, String songId, String release, String artistId, String artistMbid, String artistName, double duration, double artistFamiliarity, double artistHotttnesss, int playCount, String artistTags, String artistTerms) {
+    public EnhancedSongInfo(int year, String trackId, String title, String songId, String release, String artistId, String artistMbid, String artistName, double duration, double artistFamiliarity, double artistHotttnesss, int playCount, String[] artistTags, String[] artistTerms) {
         this.year = year;
         this.trackId = trackId;
         this.title = title;
@@ -36,8 +36,19 @@ public class EnhancedSongInfo implements Serializable {
         this.artistFamiliarity = artistFamiliarity;
         this.artistHotttnesss = artistHotttnesss;
         this.playCount = playCount;
-        this.artistTags = artistTags;
-        this.artistTerms = artistTerms;
+        double[] tags = new double[artistTags.length];
+        double[] terms = new double[artistTerms.length];
+
+        for(int i=0; i<tags.length; i++) {
+            tags[i] = Double.parseDouble(artistTags[i]);
+        }
+
+        for(int i=0; i<terms.length; i++) {
+            terms[i] = Double.parseDouble(artistTerms[i]);
+        }
+
+        this.artistTags = tags;
+        this.artistTerms = terms;
     }
 
     public int getYear() {
@@ -136,19 +147,19 @@ public class EnhancedSongInfo implements Serializable {
         this.playCount = playCount;
     }
 
-    public String getArtistTags() {
+    public double[] getArtistTags() {
         return artistTags;
     }
 
-    public void setArtistTags(String artistTags) {
+    public void setArtistTags(double[] artistTags) {
         this.artistTags = artistTags;
     }
 
-    public String getArtistTerms() {
+    public double[] getArtistTerms() {
         return artistTerms;
     }
 
-    public void setArtistTerms(String artistTerms) {
+    public void setArtistTerms(double[] artistTerms) {
         this.artistTerms = artistTerms;
     }
 }
