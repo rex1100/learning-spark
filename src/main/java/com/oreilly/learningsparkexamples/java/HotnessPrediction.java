@@ -63,7 +63,7 @@ public class HotnessPrediction {
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
 
-        /*JavaRDD<String> trainingDecade = sc.textFile(trainingPath0)
+        JavaRDD<String> trainingDecade = sc.textFile(trainingPath0)
                 .union(sc.textFile(trainingPath1))
                 .union(sc.textFile(trainingPath2))
                 .union(sc.textFile(trainingPath3))
@@ -253,7 +253,7 @@ public class HotnessPrediction {
         MulticlassMetrics multiValueMetrics = new MulticlassMetrics(predictionAndLabelsWithMultiValueHotness.rdd());
         double multiValueAccuracy = multiValueMetrics.weightedPrecision();
 
-        System.out.println("Accuracy with multiple hotness values = " + multiValueAccuracy);*/
+        System.out.println("Accuracy with multiple hotness values = " + multiValueAccuracy);
 
 
 
@@ -289,7 +289,7 @@ public class HotnessPrediction {
                 .union(sc.textFile(testPath8))
                 .union(sc.textFile(testPath9));
 
-        /*JavaRDD<LabeledPoint> decadeDataExcludingFamiliarity = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
+        JavaRDD<LabeledPoint> decadeDataExcludingFamiliarity = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
             double[] tags = song.getArtistTags();
             double[] points = new double[tags.length + 1];
             ArrayList<Integer> indexArray = new ArrayList<Integer>();
@@ -333,7 +333,7 @@ public class HotnessPrediction {
         MulticlassMetrics metricsMinusFamiliarity = new MulticlassMetrics(predictionAndLabelsMinusFamiliarity.rdd());
         double accuracyMinusFamiliarity = metricsMinusFamiliarity.weightedPrecision();
 
-        System.out.println("Accuracy for hotness prediction without artist familiarity = " + accuracyMinusFamiliarity);*/
+        System.out.println("Accuracy for hotness prediction without artist familiarity = " + accuracyMinusFamiliarity);
 
 
         JavaRDD<LabeledPoint> decadeDataExcludingFamiliarityMV = decadeTextData.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
