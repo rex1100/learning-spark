@@ -85,7 +85,8 @@ public class LogisticRegressionPrediction {
                 .union(sc.textFile(testPath8))
                 .union(sc.textFile(testPath9));
 
-        JavaRDD<LabeledPoint> trainingData = trainingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+        JavaRDD<LabeledPoint> trainingData = trainingDecade.map(LogisticRegressionPrediction::createEnhancedSongInfo)
+                .map((EnhancedSongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration(), };
             double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
             if(isHot > 0) {
@@ -98,7 +99,7 @@ public class LogisticRegressionPrediction {
             return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
-        JavaRDD<LabeledPoint> testingData = testingDecade.map(LogisticRegressionPrediction::createSongInfo).map((SongInfo song) -> {
+        JavaRDD<LabeledPoint> testingData = testingDecade.map(LogisticRegressionPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
             double[] points = {song.getArtistFamiliarity(), song.getDuration()};
             double isHot = Math.round(song.getArtistHotttnesss() * 5.0);
             if(isHot > 0) {
@@ -134,11 +135,14 @@ public class LogisticRegressionPrediction {
 
     }
 
-    public static SongInfo createSongInfo(String toSplit){
+    public static EnhancedSongInfo createEnhancedSongInfo(String toSplit){
         toSplit = toSplit.replace("[", "");
         toSplit = toSplit.replace("]", "");
+        toSplit = toSplit.replace("WrappedArray", "");
+
         String[] array = toSplit.split(",");
-        return new SongInfo(array[1],
+        return new EnhancedSongInfo(Integer.parseInt(array[0]),
+                array[1],
                 array[2],
                 array[3],
                 array[4],
@@ -148,6 +152,8 @@ public class LogisticRegressionPrediction {
                 Double.parseDouble(array[8]),
                 Double.parseDouble(array[9]),
                 Double.parseDouble(array[10]),
-                Integer.parseInt(array[0]));
+                Integer.parseInt(array[11]),
+                array[12],
+                array[13]);
     }
 }

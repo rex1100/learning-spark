@@ -83,37 +83,37 @@ public class JoinSongInfo {
     // the value changes based on the csv we read from
     // These then reduce the lists by union so we only have one artistId followed by a list of values
     // Then this turns them into the Artist object RDDs
-//    JavaRDD<ArtistAndList> artistSimilarRDD = csvFile3
+//    JavaRDD<ArtistAndStringList> artistSimilarRDD = csvFile3
 //            .mapToPair(string -> {
 //              String[] array = string.split(",");
 //              return new Tuple2<>(array[0], Collections.singletonList(array[1]));
 //            })
 //            .reduceByKey((x,y) -> ListUtils.union(x,y))
 //            /**NOTE: this is not going to be pretty, but because of the scala version we're using we have to do this **/
-//            .map(pair -> new ArtistAndList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
+//            .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
 
-      JavaRDD<ArtistAndList> artistTagRDD = csvFile4
+      JavaRDD<ArtistAndStringList> artistTagRDD = csvFile4
             .mapToPair(string -> {
               String[] array = string.split(",");
-              return new Tuple2<>(array[0], Collections.singletonList(array[1]));
+              return new Tuple2<>(array[0], (array[1]));
             })
-            .reduceByKey((x,y) -> ListUtils.union(x,y))
+            .reduceByKey((x,y) -> x+";"+y)
             // see above
-            .map(pair -> new ArtistAndList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
+            .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(String)((Tuple2)pair)._2()));
 
-      JavaRDD<ArtistAndList> artistTermRDD = csvFile5
+      JavaRDD<ArtistAndStringList> artistTermRDD = csvFile5
             .mapToPair(string -> {
               String[] array = string.split(",");
-              return new Tuple2<>(array[0], Collections.singletonList(array[1]));
+              return new Tuple2<>(array[0], array[1]);
             })
-            .reduceByKey((x,y) -> ListUtils.union(x,y))
+            .reduceByKey((x,y) -> x+";"+y)
             // see above
-            .map(pair -> new ArtistAndList((String)((Tuple2)pair)._1(),(List<String>)((Tuple2)pair)._2()));
+            .map(pair -> new ArtistAndStringList((String)((Tuple2)pair)._1(),(String)((Tuple2)pair)._2()));
 
     // This turns the RDD's into datasets, Datasets allow us to use Sqlesque commands on the data
-    //Dataset similarArtists = sqlContext.createDataFrame(artistSimilarRDD, ArtistAndList.class);
-    Dataset artistTags = sqlContext.createDataFrame(artistTagRDD, ArtistAndList.class);
-    Dataset artistTerms = sqlContext.createDataFrame(artistTermRDD, ArtistAndList.class);
+    //Dataset similarArtists = sqlContext.createDataFrame(artistSimilarRDD, ArtistAndStringList.class);
+    Dataset artistTags = sqlContext.createDataFrame(artistTagRDD, ArtistAndStringList.class);
+    Dataset artistTerms = sqlContext.createDataFrame(artistTermRDD, ArtistAndStringList.class);
     Dataset songInfo = sqlContext.createDataFrame(songInfoRDD, SongInfo.class);
     Dataset songPlays = sqlContext.createDataFrame(createSongPlaysRDD(csvFile2), SongPlays.class);
 

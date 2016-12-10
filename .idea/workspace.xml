@@ -2,102 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50b2d554-b422-470a-a669-68db2000001b" name="Default" comment="added full data set, and output results">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/._SUCCESS.crc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/.part-00000.crc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/._SUCCESS.crc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/.part-00000.crc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1927" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1956" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1959" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1963" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1964" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1965" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1966" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1967" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1968" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1969" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1970" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1971" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1972" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1973" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1974" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1975" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1976" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1977" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1978" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1979" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1980" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1981" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1982" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1983" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1984" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1985" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1986" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1987" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1988" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1989" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1990" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1991" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1992" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1993" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1994" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1995" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1996" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1997" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1998" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/1999" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2002" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2003" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2004" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2005" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2006" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2007" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2008" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2009" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/2010" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/_SUCCESS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/1481257251529/part-00000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output/OutputExample/part-00000" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1900" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1900" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1901" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1901" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1904" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1904" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1905" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1905" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1908" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1908" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1910" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1910" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1913" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1913" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1914" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1914" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1915" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1915" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1916" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1916" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1917" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1917" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1918" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1918" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1919" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1919" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1921" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1921" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1923" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1923" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1924" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1924" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1925" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1925" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1926" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1926" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1931" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1931" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1932" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1932" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1933" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1933" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1934" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1934" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1935" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1935" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1940" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1940" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1941" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1941" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1942" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1942" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1944" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1944" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1947" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1947" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build-project" afterPath="$PROJECT_DIR$/build-project" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1922" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1922" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1927" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1927" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1928" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1928" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1929" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1929" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1930" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1930" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1936" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1936" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1937" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1937" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1938" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1938" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1939" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1939" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1943" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1943" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/OutputExample/fullData/1945" afterPath="$PROJECT_DIR$/output/OutputExample/fullData/1945" />
@@ -168,7 +80,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run-all-examples" afterPath="$PROJECT_DIR$/run-all-examples" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/seperate-years.sh" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/seperate-years.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -187,41 +98,131 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="1938" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1938">
+      <file leaf-file-name="LogisticRegressionPrediction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="276">
+              <caret line="89" column="82" lean-forward="true" selection-start-line="89" selection-start-column="82" selection-end-line="89" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1936" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1936">
+      <file leaf-file-name="log4j.properties.template" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="558">
+              <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1930" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1930">
+      <file leaf-file-name="run-all-examples" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run-all-examples">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="541">
+              <caret line="66" column="116" lean-forward="false" selection-start-line="66" selection-start-column="116" selection-end-line="66" selection-end-column="116" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2010" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2010" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/2010">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="2860" column="0" lean-forward="false" selection-start-line="2860" selection-start-column="0" selection-end-line="2860" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="2831" column="408" lean-forward="true" selection-start-line="2831" selection-start-column="229" selection-end-line="2831" selection-end-column="408" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnhancedSongInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1323#1324#0" expanded="true" />
+                <element signature="e#1350#1351#0" expanded="true" />
+                <element signature="e#1387#1388#0" expanded="true" />
+                <element signature="e#1419#1420#0" expanded="true" />
+                <element signature="e#1453#1454#0" expanded="true" />
+                <element signature="e#1483#1484#0" expanded="true" />
+                <element signature="e#1529#1530#0" expanded="true" />
+                <element signature="e#1567#1568#0" expanded="true" />
+                <element signature="e#1599#1600#0" expanded="true" />
+                <element signature="e#1627#1628#0" expanded="true" />
+                <element signature="e#1669#1670#0" expanded="true" />
+                <element signature="e#1703#1704#0" expanded="true" />
+                <element signature="e#1736#1737#0" expanded="true" />
+                <element signature="e#1765#1766#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
+                <element signature="e#1845#1846#0" expanded="true" />
+                <element signature="e#1879#1880#0" expanded="true" />
+                <element signature="e#1909#1910#0" expanded="true" />
+                <element signature="e#1955#1956#0" expanded="true" />
+                <element signature="e#1993#1994#0" expanded="true" />
+                <element signature="e#2028#2029#0" expanded="true" />
+                <element signature="e#2059#2060#0" expanded="true" />
+                <element signature="e#2107#2108#0" expanded="true" />
+                <element signature="e#2147#2148#0" expanded="true" />
+                <element signature="e#2184#2185#0" expanded="true" />
+                <element signature="e#2217#2218#0" expanded="true" />
+                <element signature="e#2269#2270#0" expanded="true" />
+                <element signature="e#2313#2314#0" expanded="true" />
+                <element signature="e#2350#2351#0" expanded="true" />
+                <element signature="e#2383#2384#0" expanded="true" />
+                <element signature="e#2435#2436#0" expanded="true" />
+                <element signature="e#2479#2480#0" expanded="true" />
+                <element signature="e#2514#2515#0" expanded="true" />
+                <element signature="e#2545#2546#0" expanded="true" />
+                <element signature="e#2593#2594#0" expanded="true" />
+                <element signature="e#2633#2634#0" expanded="true" />
+                <element signature="e#2677#2678#0" expanded="true" />
+                <element signature="e#2717#2718#0" expanded="true" />
+                <element signature="e#2783#2784#0" expanded="true" />
+                <element signature="e#2841#2842#0" expanded="true" />
+                <element signature="e#2884#2885#0" expanded="true" />
+                <element signature="e#2923#2924#0" expanded="true" />
+                <element signature="e#2987#2988#0" expanded="true" />
+                <element signature="e#3043#3044#0" expanded="true" />
+                <element signature="e#3076#3077#0" expanded="true" />
+                <element signature="e#3108#3109#0" expanded="true" />
+                <element signature="e#3155#3156#0" expanded="true" />
+                <element signature="e#3197#3198#0" expanded="true" />
+                <element signature="e#3234#3235#0" expanded="true" />
+                <element signature="e#3267#3268#0" expanded="true" />
+                <element signature="e#3319#3320#0" expanded="true" />
+                <element signature="e#3363#3364#0" expanded="true" />
+                <element signature="e#3401#3402#0" expanded="true" />
+                <element signature="e#3435#3436#0" expanded="true" />
+                <element signature="e#3489#3490#0" expanded="true" />
+                <element signature="e#3535#3536#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JoinSongInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1375">
+              <caret line="83" column="44" lean-forward="false" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArtistAndStringList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -246,7 +247,7 @@
       <find>''</find>
       <find>2007</find>
       <find>[2010</find>
-      <find>'</find>
+      <find>,</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -289,12 +290,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/seperate-years.sh" />
         <option value="$PROJECT_DIR$/output/songs/1481324934188/seperate-years.sh" />
         <option value="$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet" />
-        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" />
-        <option value="$PROJECT_DIR$/run-all-examples" />
         <option value="$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template" />
         <option value="$PROJECT_DIR$/output/OutputExample/fullData/2010" />
         <option value="$PROJECT_DIR$/output/OutputExample/fullData/seperate-years.sh" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java" />
+        <option value="$PROJECT_DIR$/run-all-examples" />
+        <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java" />
       </list>
     </option>
   </component>
@@ -326,8 +330,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -426,7 +431,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -498,29 +503,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-spark2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/output/OutputExample/fullData" />
-      <recent name="$PROJECT_DIR$/files/Full_Data" />
-      <recent name="$PROJECT_DIR$/output/songs/1481257251529" />
-      <recent name="$PROJECT_DIR$/files" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.oreilly.learningsparkexamples.java" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/output/OutputExample/fullData" />
       <recent name="$PROJECT_DIR$/output/OutputExample" />
       <recent name="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java" />
       <recent name="$PROJECT_DIR$/output/songs/1481324934188" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.oreilly.learningsparkexamples.java" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/output/OutputExample/fullData" />
+      <recent name="$PROJECT_DIR$/files/Full_Data" />
+      <recent name="$PROJECT_DIR$/output/songs/1481257251529" />
+      <recent name="$PROJECT_DIR$/files" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MLlib">
@@ -834,7 +852,6 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -847,7 +864,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -858,7 +874,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -884,27 +902,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/output/artists/1481247693040/_temporary/0/_temporary/attempt_201612081941_0006_m_000000_6/part-00000">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/songs/1481248066503/part-00000">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="2409" column="0" lean-forward="false" selection-start-line="2409" selection-start-column="0" selection-end-line="2409" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/songs/1481248902304/part-00000">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="2425" column="0" lean-forward="true" selection-start-line="2425" selection-start-column="0" selection-end-line="2425" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/SongYear.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -966,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -974,7 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -982,7 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,7 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,7 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="28" column="146" lean-forward="false" selection-start-line="28" selection-start-column="146" selection-end-line="28" selection-end-column="146" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,7 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="67" column="3" lean-forward="true" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,19 +1016,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/MLlib.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="60" column="75" lean-forward="true" selection-start-line="60" selection-start-column="75" selection-end-line="60" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/MLlib.java" />
     <entry file="file://$PROJECT_DIR$/output/OutputExample/subsetData/2010">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,7 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="268" lean-forward="false" selection-start-line="3" selection-start-column="268" selection-end-line="3" selection-end-column="268" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="96" lean-forward="false" selection-start-line="26" selection-start-column="96" selection-end-line="26" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,7 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="4804" column="24" lean-forward="false" selection-start-line="4804" selection-start-column="24" selection-end-line="4804" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,42 +1084,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/.part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet.crc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/metadata/part-00000">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="109" lean-forward="false" selection-start-line="8" selection-start-column="109" selection-end-line="8" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="98" column="57" lean-forward="false" selection-start-line="98" selection-start-column="57" selection-end-line="98" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/.part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet.crc" />
+    <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/metadata/part-00000" />
+    <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/SongPlays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1154,23 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run-all-examples">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,17 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="142" column="20" lean-forward="false" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1196,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,7 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1212,7 +1130,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="80" column="206" lean-forward="false" selection-start-line="80" selection-start-column="202" selection-end-line="80" selection-end-column="206" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,7 +1142,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1233,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="3224" column="0" lean-forward="false" selection-start-line="3224" selection-start-column="0" selection-end-line="3224" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1241,15 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
           <caret line="8432" column="5" lean-forward="true" selection-start-line="8432" selection-start-column="5" selection-end-line="8432" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1938">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,10 +1175,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/ArtistAndStringList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/JoinSongInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1375">
+          <caret line="83" column="44" lean-forward="false" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/EnhancedSongInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+            <element signature="e#1453#1454#0" expanded="true" />
+            <element signature="e#1483#1484#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1599#1600#0" expanded="true" />
+            <element signature="e#1627#1628#0" expanded="true" />
+            <element signature="e#1669#1670#0" expanded="true" />
+            <element signature="e#1703#1704#0" expanded="true" />
+            <element signature="e#1736#1737#0" expanded="true" />
+            <element signature="e#1765#1766#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+            <element signature="e#1845#1846#0" expanded="true" />
+            <element signature="e#1879#1880#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1955#1956#0" expanded="true" />
+            <element signature="e#1993#1994#0" expanded="true" />
+            <element signature="e#2028#2029#0" expanded="true" />
+            <element signature="e#2059#2060#0" expanded="true" />
+            <element signature="e#2107#2108#0" expanded="true" />
+            <element signature="e#2147#2148#0" expanded="true" />
+            <element signature="e#2184#2185#0" expanded="true" />
+            <element signature="e#2217#2218#0" expanded="true" />
+            <element signature="e#2269#2270#0" expanded="true" />
+            <element signature="e#2313#2314#0" expanded="true" />
+            <element signature="e#2350#2351#0" expanded="true" />
+            <element signature="e#2383#2384#0" expanded="true" />
+            <element signature="e#2435#2436#0" expanded="true" />
+            <element signature="e#2479#2480#0" expanded="true" />
+            <element signature="e#2514#2515#0" expanded="true" />
+            <element signature="e#2545#2546#0" expanded="true" />
+            <element signature="e#2593#2594#0" expanded="true" />
+            <element signature="e#2633#2634#0" expanded="true" />
+            <element signature="e#2677#2678#0" expanded="true" />
+            <element signature="e#2717#2718#0" expanded="true" />
+            <element signature="e#2783#2784#0" expanded="true" />
+            <element signature="e#2841#2842#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
+            <element signature="e#2923#2924#0" expanded="true" />
+            <element signature="e#2987#2988#0" expanded="true" />
+            <element signature="e#3043#3044#0" expanded="true" />
+            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3108#3109#0" expanded="true" />
+            <element signature="e#3155#3156#0" expanded="true" />
+            <element signature="e#3197#3198#0" expanded="true" />
+            <element signature="e#3234#3235#0" expanded="true" />
+            <element signature="e#3267#3268#0" expanded="true" />
+            <element signature="e#3319#3320#0" expanded="true" />
+            <element signature="e#3363#3364#0" expanded="true" />
+            <element signature="e#3401#3402#0" expanded="true" />
+            <element signature="e#3435#3436#0" expanded="true" />
+            <element signature="e#3489#3490#0" expanded="true" />
+            <element signature="e#3535#3536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run-all-examples">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="66" column="116" lean-forward="false" selection-start-line="66" selection-start-column="116" selection-end-line="66" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spark-2.0.2-bin-hadoop2.7/conf/log4j.properties.template">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/1938">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/2010">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="2860" column="0" lean-forward="false" selection-start-line="2860" selection-start-column="0" selection-end-line="2860" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="2831" column="408" lean-forward="true" selection-start-line="2831" selection-start-column="229" selection-end-line="2831" selection-end-column="408" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="89" column="82" lean-forward="true" selection-start-line="89" selection-start-column="82" selection-end-line="89" selection-end-column="82" />
           <folding />
         </state>
       </provider>
