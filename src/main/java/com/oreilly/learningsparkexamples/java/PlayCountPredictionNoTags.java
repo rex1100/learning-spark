@@ -19,10 +19,10 @@ import org.apache.spark.mllib.regression.LabeledPoint;
 
 import java.util.ArrayList;
 
-public class PlayCountPopularityPrediction {
+public class PlayCountPredictionNoTags {
 
     public static void main(String[] args) throws Exception {
-        PlayCountPopularityPrediction logisticR = new PlayCountPopularityPrediction();
+        PlayCountPredictionNoTags logisticR = new PlayCountPredictionNoTags();
         String master = args[0];
         logisticR.run(master);
     }
@@ -83,52 +83,22 @@ public class PlayCountPopularityPrediction {
 
         JavaRDD<LabeledPoint> trainingData = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
-                    double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 2];
-                    ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 2];
-
-                    for(int i=0; i<tags.length; i++) {
-                        points[i] = tags[i];
-                        indexArray.add((int)tags[i]);
-                    }
-
-                    points[points.length-2] = song.getArtistFamiliarity();
-                    indexArray.add(points.length-2);
-                    points[points.length-1] = song.getDuration();
-                    indexArray.add(points.length-1);
-
-                    for(int i=0; i<indexArray.size(); i++) {
-                        indices[i] = indexArray.get(i);
-                    }
+                    double[] points = new double[2];
+                    points[0] = song.getArtistFamiliarity();
+                    points[1] = song.getDuration();
 
                     double isHot = 0.0;
                     if(song.getPlayCount() >= 101735) {
                         isHot = 1.0;
                     }
 
-                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(isHot, Vectors.dense(points));
                 });
 
         JavaRDD<LabeledPoint> testingData = testingDecade.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
-            double[] tags = song.getArtistTags();
-            double[] points = new double[tags.length + 2];
-            ArrayList<Integer> indexArray = new ArrayList<Integer>();
-            int[] indices = new int[tags.length + 2];
-
-            for(int i=0; i<tags.length; i++) {
-                points[i] = tags[i];
-                indexArray.add((int)tags[i]);
-            }
-
-            points[points.length-2] = song.getArtistFamiliarity();
-            indexArray.add(points.length-2);
-            points[points.length-1] = song.getDuration();
-            indexArray.add(points.length-1);
-
-            for(int i=0; i<indexArray.size(); i++) {
-                indices[i] = indexArray.get(i);
-            }
+            double[] points = new double[2];
+            points[0] = song.getArtistFamiliarity();
+            points[1] = song.getDuration();
 
 
             double isHot = 0.0;
@@ -136,7 +106,7 @@ public class PlayCountPopularityPrediction {
                 isHot = 1.0;
             }
 
-            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+            return new LabeledPoint(isHot, Vectors.dense(points));
         });
 
         trainingData.cache();
@@ -160,20 +130,9 @@ public class PlayCountPopularityPrediction {
 
         JavaRDD<LabeledPoint> trainDataMV = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
-                    double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 2];
-                    ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 2];
-
-                    for(int i=0; i<tags.length; i++) {
-                        points[i] = tags[i];
-                        indexArray.add((int)tags[i]);
-                    }
-
-                    points[points.length-2] = song.getArtistFamiliarity();
-                    indexArray.add(points.length-2);
-                    points[points.length-1] = song.getDuration();
-                    indexArray.add(points.length-1);
+                    double[] points = new double[2];
+                    points[0] = song.getArtistFamiliarity();
+                    points[1] = song.getDuration();
 
                     double isHot = 0.0;
 
@@ -191,25 +150,14 @@ public class PlayCountPopularityPrediction {
                         isHot = 5.0;
                     }
 
-                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(isHot, Vectors.dense(points));
                 });
 
         JavaRDD<LabeledPoint> testDataMV = testingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
-                    double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 2];
-                    ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 2];
-
-                    for(int i=0; i<tags.length; i++) {
-                        points[i] = tags[i];
-                        indexArray.add((int)tags[i]);
-                    }
-
-                    points[points.length-2] = song.getArtistFamiliarity();
-                    indexArray.add(points.length-2);
-                    points[points.length-1] = song.getDuration();
-                    indexArray.add(points.length-1);
+                    double[] points = new double[2];
+                    points[0] = song.getArtistFamiliarity();
+                    points[1] = song.getDuration();
 
                     double isHot = 0.0;
 
@@ -227,12 +175,12 @@ public class PlayCountPopularityPrediction {
                         isHot = 5.0;
                     }
 
-                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                    return new LabeledPoint(isHot, Vectors.dense(points));
                 });
 
         trainDataMV.cache();
 
-        final LogisticRegressionModel modelMV = new LogisticRegressionWithLBFGS().setNumClasses(5).run(trainDataMV.rdd());
+        final LogisticRegressionModel modelMV = new LogisticRegressionWithLBFGS().setNumClasses(6).run(trainDataMV.rdd());
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabelsMV = testDataMV.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
