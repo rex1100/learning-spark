@@ -17,7 +17,9 @@ import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS;
 import org.apache.spark.mllib.evaluation.MulticlassMetrics;
 import org.apache.spark.mllib.regression.LabeledPoint;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -307,6 +309,36 @@ public class YearPredictionNoTags {
         double accuracyByTenYears = metricsByTenYears.weightedPrecision();
 
         System.out.println("Accuracy for within ten years prediction = " + accuracyByTenYears);
+
+        JavaRDD<String> metricsResultByTenYears = sc.parallelize(Arrays.asList(
+                "Precision: " + metricsByTenYears.weightedPrecision(),
+                "\nRecall: " +metricsByTenYears.weightedRecall(),
+                "\nF-Measure: "+metricsByTenYears.weightedFMeasure(),
+                "\nFalse Positve Rate: "+metricsByTenYears.weightedFalsePositiveRate(),
+                "\nTrue Positve Rate: "+metricsByTenYears.weightedTruePositiveRate(),
+                "\nConfusion metrics: \n" + metricsByTenYears.confusionMatrix()));
+
+        JavaRDD<String> metricsResultByYear = sc.parallelize(Arrays.asList(
+                "Precision: " + metricsByIndividualYear.weightedPrecision(),
+                "\nRecall: " +metricsByIndividualYear.weightedRecall(),
+                "\nF-Measure: "+metricsByIndividualYear.weightedFMeasure(),
+                "\nFalse Positve Rate: "+metricsByIndividualYear.weightedFalsePositiveRate(),
+                "\nTrue Positve Rate: "+metricsByIndividualYear.weightedTruePositiveRate(),
+                "\nConfusion metrics: \n" + metricsByIndividualYear.confusionMatrix()));
+
+        JavaRDD<String> metricsResultByFiveYears = sc.parallelize(Arrays.asList(
+                "Precision: " + metricsByFiveYears.weightedPrecision(),
+                "\nRecall: " +metricsByFiveYears.weightedRecall(),
+                "\nF-Measure: "+metricsByFiveYears.weightedFMeasure(),
+                "\nFalse Positve Rate: "+metricsByFiveYears.weightedFalsePositiveRate(),
+                "\nTrue Positve Rate: "+metricsByFiveYears.weightedTruePositiveRate(),
+                "\nConfusion metrics: \n" + metricsByFiveYears.confusionMatrix()));
+
+
+        metricsResultByFiveYears.coalesce(1).saveAsTextFile("output/YearPredictionNoTags/ByFiveYearsMetrics/"+ Instant.now().toEpochMilli());
+        metricsResultByYear.coalesce(1).saveAsTextFile("output/YearPredictionNoTags/ByIndividualYearsMetrics/"+ Instant.now().toEpochMilli());
+        metricsResultByTenYears.coalesce(1).saveAsTextFile("output/YearPredictionNoTags/ByTenYearsMetrics/"+ Instant.now().toEpochMilli());
+
 
         /*
             End of decade Prediction

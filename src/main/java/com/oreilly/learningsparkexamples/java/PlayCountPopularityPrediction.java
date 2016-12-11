@@ -17,7 +17,9 @@ import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS;
 import org.apache.spark.mllib.evaluation.MulticlassMetrics;
 import org.apache.spark.mllib.regression.LabeledPoint;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PlayCountPopularityPrediction {
 
@@ -155,7 +157,15 @@ public class PlayCountPopularityPrediction {
         //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
 
         System.out.println("Accuracy = " + accuracy);
+        JavaRDD<String> metricsResult = sc.parallelize(Arrays.asList(
+                "Precision: " + metrics.weightedPrecision(),
+                "\nRecall: " +metrics.weightedRecall(),
+                "\nF-Measure: "+metrics.weightedFMeasure(),
+                "\nFalse Positve Rate: "+metrics.weightedFalsePositiveRate(),
+                "\nTrue Positve Rate: "+metrics.weightedTruePositiveRate(),
+                "\nConfusion metrics: \n" + metrics.confusionMatrix()));
 
+        metricsResult.coalesce(1).saveAsTextFile("output/PlayCountPopularityMetrics/"+ Instant.now().toEpochMilli());
     }
 
     public static EnhancedSongInfo createEnhancedSongInfo(String toSplit){

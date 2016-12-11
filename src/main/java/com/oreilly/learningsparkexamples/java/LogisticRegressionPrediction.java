@@ -26,7 +26,9 @@ import org.apache.spark.mllib.evaluation.MulticlassMetrics;
 import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.mllib.util.MLUtils;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LogisticRegressionPrediction {
@@ -180,7 +182,15 @@ public class LogisticRegressionPrediction {
         // https://en.wikipedia.org/wiki/Precision_and_recall#F-measure
         metrics.weightedFMeasure();
         //model.save(sc.sc(), "target/tmp/javaLogisticRegressionWithLBFGSModel");
+        JavaRDD<String> metricsResult = sc.parallelize(Arrays.asList(
+                "Precision: " + metrics.weightedPrecision(),
+                "\nRecall: " +metrics.weightedRecall(),
+                "\nF-Measure: "+metrics.weightedFMeasure(),
+                "\nFalse Positve Rate: "+metrics.weightedFalsePositiveRate(),
+                "\nTrue Positve Rate: "+metrics.weightedTruePositiveRate(),
+                "\nConfusion metrics: \n" + metrics.confusionMatrix()));
 
+        metricsResult.coalesce(1).saveAsTextFile("output/logisticRegressionMetrics/"+ Instant.now().toEpochMilli());
         System.out.println("Accuracy = " + accuracy);
 
     }

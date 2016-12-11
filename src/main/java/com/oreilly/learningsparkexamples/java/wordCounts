@@ -1,3 +1,4 @@
+#Have to replace space with , after running this
 wc -l 1900 >> songsPerYear.csv
 wc -l 1901 >> songsPerYear.csv
 wc -l 1902 >> songsPerYear.csv
