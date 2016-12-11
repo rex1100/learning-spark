@@ -154,7 +154,7 @@ public class PlayCountPopularityPrediction {
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
         double accuracy = metrics.weightedPrecision();
 
-        System.out.println("Accuracy = " + accuracy);
+        System.out.println("Accuracy of play count popularity prediction with 2 classes = " + accuracy);
 
 
 
@@ -245,7 +245,7 @@ public class PlayCountPopularityPrediction {
         MulticlassMetrics metricsMV = new MulticlassMetrics(predictionAndLabelsMV.rdd());
         double accuracyMV = metricsMV.weightedPrecision();
 
-        System.out.println("Accuracy = " + accuracyMV);
+        System.out.println("Accuracy of play count popularity prediction with 6 classes= " + accuracyMV);
 
     }
 

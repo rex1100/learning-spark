@@ -124,7 +124,7 @@ public class PlayCountPredictionNoTags {
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
         double accuracy = metrics.weightedPrecision();
 
-        System.out.println("Accuracy = " + accuracy);
+        System.out.println("Accuracy of play count population prediction with 2 classes and no artist tags = " + accuracy);
 
 
 
@@ -193,7 +193,7 @@ public class PlayCountPredictionNoTags {
         MulticlassMetrics metricsMV = new MulticlassMetrics(predictionAndLabelsMV.rdd());
         double accuracyMV = metricsMV.weightedPrecision();
 
-        System.out.println("Accuracy = " + accuracyMV);
+        System.out.println("Accuracy of play count population prediction with 6 classes and no artist tags = " + accuracyMV);
 
     }
 

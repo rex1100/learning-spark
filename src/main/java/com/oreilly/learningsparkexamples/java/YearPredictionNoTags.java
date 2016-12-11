@@ -162,7 +162,7 @@ public class YearPredictionNoTags {
         MulticlassMetrics metricsByIndividualYear = new MulticlassMetrics(predictionAndLabelsByIndividualYear.rdd());
         double accuracyByIndividualYear = metricsByIndividualYear.weightedPrecision();
 
-        System.out.println("Accuracy for individual year prediction = " + accuracyByIndividualYear);
+        System.out.println("Accuracy for individual year prediction with no artist tags = " + accuracyByIndividualYear);
 
         /*
             End of individual year prediction
@@ -234,7 +234,7 @@ public class YearPredictionNoTags {
         MulticlassMetrics metricsByFiveYears = new MulticlassMetrics(predictionAndLabelsByFiveYears.rdd());
         double accuracyByFiveYears = metricsByFiveYears.weightedPrecision();
 
-        System.out.println("Accuracy for within four years prediction = " + accuracyByFiveYears);
+        System.out.println("Accuracy for within four years prediction with no artist tags = " + accuracyByFiveYears);
 
         /*
             End of 5 year prediction
@@ -306,7 +306,7 @@ public class YearPredictionNoTags {
         MulticlassMetrics metricsByTenYears = new MulticlassMetrics(predictionAndLabelsByTenYears.rdd());
         double accuracyByTenYears = metricsByTenYears.weightedPrecision();
 
-        System.out.println("Accuracy for within ten years prediction = " + accuracyByTenYears);
+        System.out.println("Accuracy for within ten years prediction with no artist tags = " + accuracyByTenYears);
 
         /*
             End of decade Prediction
