@@ -173,7 +173,7 @@ public class YearPredictionTags {
         MulticlassMetrics metricsByIndividualYear = new MulticlassMetrics(predictionAndLabelsByIndividualYear.rdd());
         double accuracyByIndividualYear = metricsByIndividualYear.weightedPrecision();
 
-        System.out.println("Accuracy for individual year prediction = " + accuracyByIndividualYear);
+        System.out.println("Accuracy for individual year prediction with artist tags = " + accuracyByIndividualYear);
 
         /*
             End of individual year prediction
@@ -254,7 +254,7 @@ public class YearPredictionTags {
         MulticlassMetrics metricsByFiveYears = new MulticlassMetrics(predictionAndLabelsByFiveYears.rdd());
         double accuracyByFiveYears = metricsByFiveYears.weightedPrecision();
 
-        System.out.println("Accuracy for within four years prediction = " + accuracyByFiveYears);
+        System.out.println("Accuracy for within four years prediction with artist tags = " + accuracyByFiveYears);
 
         /*
             End of 5 year prediction
@@ -335,6 +335,7 @@ public class YearPredictionTags {
         MulticlassMetrics metricsByTenYears = new MulticlassMetrics(predictionAndLabelsByTenYears.rdd());
         double accuracyByTenYears = metricsByTenYears.weightedPrecision();
 
+        System.out.println("Accuracy for within ten years prediction with artist tags = " + accuracyByTenYears);
         JavaRDD<String> metricsResultByTenYears = sc.parallelize(Arrays.asList(
                 "Precision: " + metricsByTenYears.weightedPrecision(),
                 "\nRecall: " +metricsByTenYears.weightedRecall(),

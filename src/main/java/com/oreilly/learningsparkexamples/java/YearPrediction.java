@@ -268,7 +268,7 @@ public class YearPrediction {
         MulticlassMetrics metricsByFiveYears = new MulticlassMetrics(predictionAndLabelsByFiveYears.rdd());
         double accuracyByFiveYears = metricsByFiveYears.weightedPrecision();
 
-        System.out.println("Accuracy for within four years prediction = " + accuracyByFiveYears);
+        System.out.println("Accuracy for within five years prediction = " + accuracyByFiveYears);
 
         /*
             End of 5 year prediction

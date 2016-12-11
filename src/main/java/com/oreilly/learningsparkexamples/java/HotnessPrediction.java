@@ -170,7 +170,7 @@ public class HotnessPrediction {
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
         double accuracy = metrics.weightedPrecision();
 
-        System.out.println("Accuracy = " + accuracy);
+        System.out.println("Accuracy of hotness prediction with 2 class outcomes = " + accuracy);
 
 
 
@@ -255,7 +255,7 @@ public class HotnessPrediction {
         MulticlassMetrics multiValueMetrics = new MulticlassMetrics(predictionAndLabelsWithMultiValueHotness.rdd());
         double multiValueAccuracy = multiValueMetrics.weightedPrecision();
 
-        System.out.println("Accuracy with multiple hotness values = " + multiValueAccuracy);
+        System.out.println("Accuracy of hotness prediction with 10 class outcomes = " + multiValueAccuracy);
 
 
 

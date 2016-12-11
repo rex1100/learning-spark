@@ -17,14 +17,12 @@ import org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS;
 import org.apache.spark.mllib.evaluation.MulticlassMetrics;
 import org.apache.spark.mllib.regression.LabeledPoint;
 
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class PlayCountPopularityPrediction {
+public class PlayCountPredictionTags {
 
     public static void main(String[] args) throws Exception {
-        PlayCountPopularityPrediction logisticR = new PlayCountPopularityPrediction();
+        PlayCountPredictionTags logisticR = new PlayCountPredictionTags();
         String master = args[0];
         logisticR.run(master);
     }
@@ -40,9 +38,6 @@ public class PlayCountPopularityPrediction {
         String trainingPath7 = "output/OutputExample/fullData/1997";
         String trainingPath8 = "output/OutputExample/fullData/1998";
         String trainingPath9 = "output/OutputExample/fullData/1999";
-        //Songs: 32344
-        //Total Plays: 20347042
-        //Average: 629 per song
 
         String testPath0 = "output/OutputExample/fullData/2000";
         String testPath1 = "output/OutputExample/fullData/2001";
@@ -54,9 +49,6 @@ public class PlayCountPopularityPrediction {
         String testPath7 = "output/OutputExample/fullData/2007";
         String testPath8 = "output/OutputExample/fullData/2008";
         String testPath9 = "output/OutputExample/fullData/2009";
-        //Songs: 75362
-        //Total Plays: 73656621
-        //Average: 977 per song
 
         JavaSparkContext sc = new JavaSparkContext(
                 master, "logisticregressionprediction", System.getenv("SPARK_HOME"), System.getenv("JARS"));
@@ -83,22 +75,17 @@ public class PlayCountPopularityPrediction {
                 .union(sc.textFile(testPath8))
                 .union(sc.textFile(testPath9));
 
-        JavaRDD<LabeledPoint> trainingData = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
+        JavaRDD<LabeledPoint> trainData = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 2];
+                    double[] points = new double[tags.length];
                     ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 2];
+                    int[] indices = new int[tags.length];
 
                     for(int i=0; i<tags.length; i++) {
                         points[i] = tags[i];
                         indexArray.add((int)tags[i]);
                     }
-
-                    points[points.length-2] = song.getArtistFamiliarity();
-                    indexArray.add(points.length-2);
-                    points[points.length-1] = song.getDuration();
-                    indexArray.add(points.length-1);
 
                     for(int i=0; i<indexArray.size(); i++) {
                         indices[i] = indexArray.get(i);
@@ -112,40 +99,35 @@ public class PlayCountPopularityPrediction {
                     return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
                 });
 
-        JavaRDD<LabeledPoint> testingData = testingDecade.map(HotnessPrediction::createEnhancedSongInfo).map((EnhancedSongInfo song) -> {
-            double[] tags = song.getArtistTags();
-            double[] points = new double[tags.length + 2];
-            ArrayList<Integer> indexArray = new ArrayList<Integer>();
-            int[] indices = new int[tags.length + 2];
+        JavaRDD<LabeledPoint> testData = testingDecade.map(HotnessPrediction::createEnhancedSongInfo)
+                .map((EnhancedSongInfo song) -> {
+                    double[] tags = song.getArtistTags();
+                    double[] points = new double[tags.length];
+                    ArrayList<Integer> indexArray = new ArrayList<Integer>();
+                    int[] indices = new int[tags.length];
 
-            for(int i=0; i<tags.length; i++) {
-                points[i] = tags[i];
-                indexArray.add((int)tags[i]);
-            }
+                    for(int i=0; i<tags.length; i++) {
+                        points[i] = tags[i];
+                        indexArray.add((int)tags[i]);
+                    }
 
-            points[points.length-2] = song.getArtistFamiliarity();
-            indexArray.add(points.length-2);
-            points[points.length-1] = song.getDuration();
-            indexArray.add(points.length-1);
+                    for(int i=0; i<indexArray.size(); i++) {
+                        indices[i] = indexArray.get(i);
+                    }
 
-            for(int i=0; i<indexArray.size(); i++) {
-                indices[i] = indexArray.get(i);
-            }
+                    double isHot = 0.0;
+                    if(song.getPlayCount() >= 368283) {
+                        isHot = 1.0;
+                    }
 
+                    return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
+                });
 
-            double isHot = 0.0;
-            if(song.getPlayCount() > 368283) {
-                isHot = 1.0;
-            }
+        trainData.cache();
 
-            return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
-        });
+        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(2).run(trainData.rdd());
 
-        trainingData.cache();
-
-        final LogisticRegressionModel model = new LogisticRegressionWithLBFGS().setNumClasses(2).run(trainingData.rdd());
-
-        JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testingData.map(
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabels = testData.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         return new Tuple2<Object, Object>(model.predict(p.features()), p.label());
@@ -156,26 +138,25 @@ public class PlayCountPopularityPrediction {
         MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabels.rdd());
         double accuracy = metrics.weightedPrecision();
 
-        System.out.println("Accuracy of play count popularity prediction with 2 classes = " + accuracy);
+        System.out.println("Accuracy of play count population prediction with 2 classes and only artist tags = " + accuracy);
 
 
 
         JavaRDD<LabeledPoint> trainDataMV = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 2];
+                    double[] points = new double[tags.length];
                     ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 2];
+                    int[] indices = new int[tags.length];
 
                     for(int i=0; i<tags.length; i++) {
                         points[i] = tags[i];
                         indexArray.add((int)tags[i]);
                     }
 
-                    points[points.length-2] = song.getArtistFamiliarity();
-                    indexArray.add(points.length-2);
-                    points[points.length-1] = song.getDuration();
-                    indexArray.add(points.length-1);
+                    for(int i=0; i<indexArray.size(); i++) {
+                        indices[i] = indexArray.get(i);
+                    }
 
                     double isHot = 0.0;
 
@@ -199,19 +180,18 @@ public class PlayCountPopularityPrediction {
         JavaRDD<LabeledPoint> testDataMV = testingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
-                    double[] points = new double[tags.length + 2];
+                    double[] points = new double[tags.length];
                     ArrayList<Integer> indexArray = new ArrayList<Integer>();
-                    int[] indices = new int[tags.length + 2];
+                    int[] indices = new int[tags.length];
 
                     for(int i=0; i<tags.length; i++) {
                         points[i] = tags[i];
                         indexArray.add((int)tags[i]);
                     }
 
-                    points[points.length-2] = song.getArtistFamiliarity();
-                    indexArray.add(points.length-2);
-                    points[points.length-1] = song.getDuration();
-                    indexArray.add(points.length-1);
+                    for(int i=0; i<indexArray.size(); i++) {
+                        indices[i] = indexArray.get(i);
+                    }
 
                     double isHot = 0.0;
 
@@ -247,17 +227,8 @@ public class PlayCountPopularityPrediction {
         MulticlassMetrics metricsMV = new MulticlassMetrics(predictionAndLabelsMV.rdd());
         double accuracyMV = metricsMV.weightedPrecision();
 
-        System.out.println("Accuracy of play count popularity prediction with 6 classes= " + accuracyMV);
-        System.out.println("Accuracy = " + accuracy);
-        JavaRDD<String> metricsResult = sc.parallelize(Arrays.asList(
-                "Precision: " + metrics.weightedPrecision(),
-                "\nRecall: " +metrics.weightedRecall(),
-                "\nF-Measure: "+metrics.weightedFMeasure(),
-                "\nFalse Positve Rate: "+metrics.weightedFalsePositiveRate(),
-                "\nTrue Positve Rate: "+metrics.weightedTruePositiveRate(),
-                "\nConfusion metrics: \n" + metrics.confusionMatrix()));
+        System.out.println("Accuracy of play count population prediction with 6 classes and only artist tags = " + accuracyMV);
 
-        metricsResult.coalesce(1).saveAsTextFile("output/PlayCountPopularityMetrics/"+ Instant.now().toEpochMilli());
     }
 
     public static EnhancedSongInfo createEnhancedSongInfo(String toSplit){
