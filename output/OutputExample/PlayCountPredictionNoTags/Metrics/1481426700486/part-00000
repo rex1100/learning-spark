@@ -1,0 +1,13 @@
+Precision: 0.9999461373766306
+
+Recall: 0.9999730683256578
+
+F-Measure: 0.999959602669818
+
+False Positve Rate: 0.9999730683256578
+
+True Positve Rate: 0.9999730683256578
+
+Confusion metrics: 
+74260.0  0.0  
+2.0      0.0  
