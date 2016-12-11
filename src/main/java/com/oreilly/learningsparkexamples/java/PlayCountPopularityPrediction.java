@@ -232,7 +232,7 @@ public class PlayCountPopularityPrediction {
 
         trainDataMV.cache();
 
-        final LogisticRegressionModel modelMV = new LogisticRegressionWithLBFGS().setNumClasses(5).run(trainDataMV.rdd());
+        final LogisticRegressionModel modelMV = new LogisticRegressionWithLBFGS().setNumClasses(6).run(trainDataMV.rdd());
 
         JavaRDD<Tuple2<Object, Object>> predictionAndLabelsMV = testDataMV.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
