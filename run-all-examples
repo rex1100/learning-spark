@@ -70,10 +70,10 @@ echo "Running Java programs"
 #./sbt/sbt assembly && $SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.SparkSQLTwitter  $ASSEMBLY_JAR  ./files/testweet.json  /tmp/java/tweetout
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.BasicQueryCassandra $ASSEMBLY_JAR local localhost
 echo "Running Predictions"
-#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.HotnessPrediction $ASSEMBLY_JAR local
-#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPrediction $ASSEMBLY_JAR local
-#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPredictionTags $ASSEMBLY_JAR local
-#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPredictionNoTags $ASSEMBLY_JAR local
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.HotnessPrediction $ASSEMBLY_JAR local
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPrediction $ASSEMBLY_JAR local
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPredictionTags $ASSEMBLY_JAR local
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPredictionNoTags $ASSEMBLY_JAR local
 $SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPopularityPrediction $ASSEMBLY_JAR local
 $SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPredictionTags $ASSEMBLY_JAR local
 $SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPredictionNoTags $ASSEMBLY_JAR local

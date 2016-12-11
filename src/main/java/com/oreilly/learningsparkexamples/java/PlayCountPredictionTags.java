@@ -142,8 +142,6 @@ public class PlayCountPredictionTags {
 
         System.out.println("Accuracy of play count population prediction with 2 classes and only artist tags = " + accuracy);
 
-
-
         JavaRDD<LabeledPoint> trainDataMV = trainingDecade.map(HotnessPrediction::createEnhancedSongInfo)
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();

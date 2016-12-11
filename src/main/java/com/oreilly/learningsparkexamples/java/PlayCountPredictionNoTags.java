@@ -212,7 +212,7 @@ public class PlayCountPredictionNoTags {
                 "\nConfusion metrics: \n" + metrics.confusionMatrix()));
 
         metricsResult.coalesce(1).saveAsTextFile("output/PlayCountPredictionNoTags/Metrics/"+ Instant.now().toEpochMilli());
-        metricsResult.coalesce(1).saveAsTextFile("output/PlayCountPredictionNoTags/MetricsMV/"+ Instant.now().toEpochMilli());
+        metricsResultMV.coalesce(1).saveAsTextFile("output/PlayCountPredictionNoTags/MetricsMV/"+ Instant.now().toEpochMilli());
 
 
         System.out.println("Accuracy of play count population prediction with 6 classes and no artist tags = " + accuracyMV);

@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50b2d554-b422-470a-a669-68db2000001b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run-all-examples" afterPath="$PROJECT_DIR$/run-all-examples" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/HotnessPrediction.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/HotnessPrediction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPrediction.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPrediction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionNoTags.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionNoTags.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java" afterPath="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,98 +23,7 @@
     <favorites_list name="java" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="part-00000" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/hotnessPrecictionMetrics/1481424496284/part-00000">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="part-00000" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/logisticRegressionMetrics/1481424268245/part-00000">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="part-00000" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPrediction/ByFiveYearsMetrics/1481424658005/part-00000">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="part-00000" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPrediction/ByIndividualYearsMetrics/1481424658111/part-00000">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="part-00000" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPrediction/ByTenYearsMetrics/1481424658163/part-00000">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wordCounts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/wordCounts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1296">
-              <caret line="0" column="48" lean-forward="false" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayCountPredictionTags.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="244" column="75" lean-forward="true" selection-start-line="244" selection-start-column="75" selection-end-line="244" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayCountPredictionNoTags.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="214" selection-end-column="126" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayCountPopularityPrediction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="259" column="117" lean-forward="true" selection-start-line="251" selection-start-column="8" selection-end-line="259" selection-end-column="117" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -208,9 +113,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPrediction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionNoTags.java" />
-        <option value="$PROJECT_DIR$/run-all-examples" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/wordCounts" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java" />
+        <option value="$PROJECT_DIR$/run-all-examples" />
         <option value="$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java" />
       </list>
     </option>
@@ -313,6 +218,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-spark2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="output" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -684,12 +603,40 @@
       <option name="project" value="LOCAL" />
       <updated>1481425357807</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Merge branch 'master' of https://github.com/rex1100/learning-spark&#10;&#10;# Conflicts:&#10;#&#9;run-all-examples&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java&#10;">
+      <created>1481425740001</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1481425740001</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Merge branch 'master' of https://github.com/rex1100/learning-spark&#10;&#10;# Conflicts:&#10;#&#9;run-all-examples&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java&#10;">
+      <created>1481425822199</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1481425822199</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Merge branch 'master' of https://github.com/rex1100/learning-spark&#10;&#10;# Conflicts:&#10;#&#9;run-all-examples&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java&#10;">
+      <created>1481425931985</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1481425931985</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added extra metrics stuff">
+      <created>1481427009118</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1481427009118</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -705,7 +652,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -738,7 +685,9 @@
     <MESSAGE value="indexing files as they are read" />
     <MESSAGE value="small commit to for counting&#10;" />
     <MESSAGE value="added output for metrics included them in commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="added output for metrics included them in commit" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/rex1100/learning-spark&#10;&#10;# Conflicts:&#10;#&#9;run-all-examples&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java&#10;#&#9;src/main/java/com/oreilly/learningsparkexamples/java/YearPredictionTags.java&#10;" />
+    <MESSAGE value="added extra metrics stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="added extra metrics stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -749,47 +698,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/output/songs/1481324136461/part-00000">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="96" lean-forward="false" selection-start-line="26" selection-start-column="96" selection-end-line="26" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/Full_Data/artist_term.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/Full_Data/track_metadata.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/Full_Data/artist_mbtag.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="4804" column="24" lean-forward="false" selection-start-line="4804" selection-start-column="24" selection-end-line="4804" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/train_triplets.txt">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/OutputExample/fullData/part-00000">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/seperate-years.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/.part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet.crc" />
     <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/metadata/part-00000" />
     <entry file="file://$PROJECT_DIR$/target/tmp/javaLogisticRegressionWithLBFGSModel/data/part-r-00000-c0845e8f-4d72-4d40-b5eb-b3d34fbc32c0.snappy.parquet" />
@@ -987,29 +895,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="192" selection-end-column="116" />
-          <folding>
-            <element signature="e#4195#4204#0" expanded="true" />
-            <element signature="e#5377#5386#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/HotnessPrediction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="568">
           <caret line="400" column="0" lean-forward="false" selection-start-line="400" selection-start-column="0" selection-end-line="400" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPrediction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="388" column="0" lean-forward="false" selection-start-line="360" selection-start-column="8" selection-end-line="388" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1030,14 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run-all-examples">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="71" column="108" lean-forward="false" selection-start-line="71" selection-start-column="108" selection-end-line="71" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output/hotnessPrecictionMetrics/1481424380297/part-00000">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1054,10 +935,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/wordCounts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1296">
+          <caret line="0" column="48" lean-forward="false" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="259" column="117" lean-forward="false" selection-start-line="251" selection-start-column="8" selection-end-line="259" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="214" column="23" lean-forward="false" selection-start-line="214" selection-start-column="23" selection-end-line="214" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run-all-examples">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="170" column="62" lean-forward="true" selection-start-line="170" selection-start-column="62" selection-end-line="170" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/PlayCountPopularityMetrics/1481426654645/part-00000">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/LogisticRegressionPrediction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="125" column="37" lean-forward="true" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+          <folding>
+            <element signature="e#4195#4204#0" expanded="true" />
+            <element signature="e#5377#5386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/output/OutputExample/logisticRegressionMetrics/1481424268245/part-00000">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="6" column="39" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/YearPrediction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-146">
+          <caret line="116" column="70" lean-forward="false" selection-start-line="116" selection-start-column="51" selection-end-line="116" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPrediction/ByTenYearsMetrics/1481424658163/part-00000">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1078,42 +1034,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPrediction/ByTenYearsMetrics/1481424658163/part-00000">
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPredictionNoTags/ByFiveYearsMetrics/1481424883829/part-00000">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/wordCounts">
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPredictionNoTags/ByTenYearsMetrics/1481424883997/part-00000">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1296">
-          <caret line="0" column="48" lean-forward="false" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPopularityPrediction.java">
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPredictionNoTags/ByIndividualYearsMetrics/1481424883921/part-00000">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="259" column="117" lean-forward="true" selection-start-line="251" selection-start-column="8" selection-end-line="259" selection-end-column="117" />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionNoTags.java">
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPredictionTags/ByFiveYearsMetrics/1481424815967/part-00000">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="214" selection-end-column="126" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/oreilly/learningsparkexamples/java/PlayCountPredictionTags.java">
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPredictionTags/ByTenYearsMetrics/1481424816141/part-00000">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="244" column="75" lean-forward="true" selection-start-line="244" selection-start-column="75" selection-end-line="244" selection-end-column="75" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/OutputExample/YearPredictionTags/ByIndividualYearsMetrics/1481424816057/part-00000">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
