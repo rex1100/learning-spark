@@ -74,9 +74,9 @@ echo "Running Predictions"
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPrediction $ASSEMBLY_JAR local
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPredictionTags $ASSEMBLY_JAR local
 #$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.YearPredictionNoTags $ASSEMBLY_JAR local
-$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPopularityPrediction $ASSEMBLY_JAR local
-#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPredictionTags $ASSEMBLY_JAR local
-#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPredictionNoTags $ASSEMBLY_JAR local
+#$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPopularityPrediction $ASSEMBLY_JAR local
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPredictionTags $ASSEMBLY_JAR local
+$SPARK_SUBMIT_SCRIPT --class com.oreilly.learningsparkexamples.java.PlayCountPredictionNoTags $ASSEMBLY_JAR local
 #echo "Running Java streaming program"
 #./bin/fakelogs.sh &
 #sleep 1

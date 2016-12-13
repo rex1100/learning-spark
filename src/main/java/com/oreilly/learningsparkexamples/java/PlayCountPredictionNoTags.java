@@ -90,7 +90,7 @@ public class PlayCountPredictionNoTags {
                     points[1] = song.getDuration();
 
                     double isHot = 0.0;
-                    if(song.getPlayCount() >= 101735) {
+                    if(song.getPlayCount() >= 1017) {
                         isHot = 1.0;
                     }
 
@@ -104,7 +104,7 @@ public class PlayCountPredictionNoTags {
 
 
             double isHot = 0.0;
-            if(song.getPlayCount() > 368283) {
+            if(song.getPlayCount() > 3682) {
                 isHot = 1.0;
             }
 
@@ -138,17 +138,17 @@ public class PlayCountPredictionNoTags {
 
                     double isHot = 0.0;
 
-                    if(song.getPlayCount() <= 20000) {
+                    if(song.getPlayCount() <= 200) {
                         isHot = 0.0;
-                    } else if(song.getPlayCount() <= 40000) {
+                    } else if(song.getPlayCount() <= 400) {
                         isHot = 1.0;
-                    } else if(song.getPlayCount() <= 60000) {
+                    } else if(song.getPlayCount() <= 600) {
                         isHot = 2.0;
-                    } else if(song.getPlayCount() <= 80000) {
+                    } else if(song.getPlayCount() <= 800) {
                         isHot = 3.0;
-                    } else if(song.getPlayCount() <= 100000) {
+                    } else if(song.getPlayCount() <= 1000) {
                         isHot = 4.0;
-                    } else if(song.getPlayCount() > 100000) {
+                    } else if(song.getPlayCount() > 1000) {
                         isHot = 5.0;
                     }
 
@@ -163,17 +163,17 @@ public class PlayCountPredictionNoTags {
 
                     double isHot = 0.0;
 
-                    if(song.getPlayCount() <= 72000) {
+                    if(song.getPlayCount() <= 720) {
                         isHot = 0.0;
-                    } else if(song.getPlayCount() <= 144000) {
+                    } else if(song.getPlayCount() <= 1440) {
                         isHot = 1.0;
-                    } else if(song.getPlayCount() <= 216000) {
+                    } else if(song.getPlayCount() <= 2160) {
                         isHot = 2.0;
-                    } else if(song.getPlayCount() <= 280000) {
+                    } else if(song.getPlayCount() <= 2800) {
                         isHot = 3.0;
-                    } else if(song.getPlayCount() <= 360000) {
+                    } else if(song.getPlayCount() <= 3600) {
                         isHot = 4.0;
-                    } else if(song.getPlayCount() > 360000) {
+                    } else if(song.getPlayCount() > 3600) {
                         isHot = 5.0;
                     }
 

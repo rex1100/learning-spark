@@ -4,6 +4,7 @@ package com.oreilly.learningsparkexamples.java;
  * Created by mitch on 08/12/16.
  */
 
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.mllib.linalg.Vectors;
 
@@ -20,8 +21,6 @@ import org.apache.spark.mllib.regression.LabeledPoint;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class YearPredictionTags {
 
@@ -97,6 +96,14 @@ public class YearPredictionTags {
                 .union(sc.textFile(testPath7))
                 .union(sc.textFile(testPath8))
                 .union(sc.textFile(testPath9));
+
+        JavaPairRDD<String,EnhancedSongInfo> fullData = decadeTextData
+                .map(YearPrediction::createEnhancedSongInfo)
+                .mapToPair(obj -> new Tuple2<>(obj.getSongId(), obj));
+
+        JavaPairRDD<String,EnhancedSongInfo> trainingData = fullData.sample(false, 0.75);
+        JavaPairRDD<String,EnhancedSongInfo> testingData = fullData.subtractByKey(trainingData);
+
 
         /*
             Map each individual year to the target, this prediction is likely to be the least accurate
@@ -183,7 +190,8 @@ public class YearPredictionTags {
             Prediction within a 5 year window
          */
 
-        JavaRDD<LabeledPoint> dataGroupedByFiveYears = decadeTextData.map(YearPrediction::createEnhancedSongInfo)
+        JavaRDD<LabeledPoint> dataGroupedByFiveYears = //decadeTextData.map(YearPrediction::createEnhancedSongInfo)
+                trainingData.map(tuple -> tuple._2())
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
                     double[] points = new double[tags.length];
@@ -237,13 +245,69 @@ public class YearPredictionTags {
                     return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
                 });
 
+        JavaRDD<LabeledPoint> testDataGroupedByFiveYears = //decadeTextData.map(YearPrediction::createEnhancedSongInfo)
+                testingData.map(tuple -> tuple._2())
+                        .map((EnhancedSongInfo song) -> {
+                            double[] tags = song.getArtistTags();
+                            double[] points = new double[tags.length];
+                            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+                            int[] indices = new int[tags.length];
+
+                            for(int i=0; i<tags.length; i++) {
+                                points[i] = tags[i];
+                                indexArray.add((int)tags[i]);
+                            }
+
+                            for(int i=0; i<indexArray.size(); i++) {
+                                indices[i] = indexArray.get(i);
+                            }
+
+                            double yearMapped = 0.0;
+
+                            switch(song.getYear()) {
+                                case 1980: yearMapped = 1.0; break;
+                                case 1981: yearMapped = 1.0; break;
+                                case 1982: yearMapped = 1.0; break;
+                                case 1983: yearMapped = 1.0; break;
+                                case 1984: yearMapped = 1.0; break;
+                                case 1985: yearMapped = 2.0; break;
+                                case 1986: yearMapped = 2.0; break;
+                                case 1987: yearMapped = 2.0; break;
+                                case 1988: yearMapped = 2.0; break;
+                                case 1989: yearMapped = 2.0; break;
+                                case 1990: yearMapped = 3.0; break;
+                                case 1991: yearMapped = 3.0; break;
+                                case 1992: yearMapped = 3.0; break;
+                                case 1993: yearMapped = 3.0; break;
+                                case 1994: yearMapped = 3.0; break;
+                                case 1995: yearMapped = 4.0; break;
+                                case 1996: yearMapped = 4.0; break;
+                                case 1997: yearMapped = 4.0; break;
+                                case 1998: yearMapped = 4.0; break;
+                                case 1999: yearMapped = 4.0; break;
+                                case 2000: yearMapped = 5.0; break;
+                                case 2001: yearMapped = 5.0; break;
+                                case 2002: yearMapped = 5.0; break;
+                                case 2003: yearMapped = 5.0; break;
+                                case 2004: yearMapped = 5.0; break;
+                                case 2005: yearMapped = 6.0; break;
+                                case 2006: yearMapped = 6.0; break;
+                                case 2007: yearMapped = 6.0; break;
+                                case 2008: yearMapped = 6.0; break;
+                                case 2009: yearMapped = 6.0; break;
+                            }
+
+                            return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
+                        });
+
+
         JavaRDD<LabeledPoint> trainingDataByFiveYears = dataGroupedByFiveYears.sample(false, 0.75);
         trainingDataByFiveYears.cache();
         JavaRDD<LabeledPoint> testingDataByFiveYears = dataGroupedByFiveYears.subtract(trainingDataByFiveYears);
 
-        final LogisticRegressionModel dataByFiveYearsModel = new LogisticRegressionWithLBFGS().setNumClasses(7).run(trainingDataByFiveYears.rdd());
+        final LogisticRegressionModel dataByFiveYearsModel = new LogisticRegressionWithLBFGS().setNumClasses(7).run(dataGroupedByFiveYears.rdd());
 
-        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsByFiveYears = testingDataByFiveYears.map(
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsByFiveYears = testDataGroupedByFiveYears.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         return new Tuple2<Object, Object>(dataByFiveYearsModel.predict(p.features()), p.label());
@@ -264,7 +328,8 @@ public class YearPredictionTags {
             Prediction within a decade
          */
 
-        JavaRDD<LabeledPoint> dataGroupedByTenYears = decadeTextData.map(YearPrediction::createEnhancedSongInfo)
+        JavaRDD<LabeledPoint> dataGroupedByTenYears = //decadeTextData.map(YearPrediction::createEnhancedSongInfo)
+                trainingData.map(tuple -> tuple._2())
                 .map((EnhancedSongInfo song) -> {
                     double[] tags = song.getArtistTags();
                     double[] points = new double[tags.length];
@@ -317,14 +382,68 @@ public class YearPredictionTags {
 
                     return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
                 });
+        JavaRDD<LabeledPoint> testDataGroupedByTenYears = //decadeTextData.map(YearPrediction::createEnhancedSongInfo)
+                testingData.map(tuple -> tuple._2())
+                        .map((EnhancedSongInfo song) -> {
+                            double[] tags = song.getArtistTags();
+                            double[] points = new double[tags.length];
+                            ArrayList<Integer> indexArray = new ArrayList<Integer>();
+                            int[] indices = new int[tags.length];
+
+                            for(int i=0; i<tags.length; i++) {
+                                points[i] = tags[i];
+                                indexArray.add((int)tags[i]);
+                            }
+
+                            for(int i=0; i<indexArray.size(); i++) {
+                                indices[i] = indexArray.get(i);
+                            }
+
+                            double yearMapped = 0.0;
+
+                            switch(song.getYear()) {
+                                case 1980: yearMapped = 1.0; break;
+                                case 1981: yearMapped = 1.0; break;
+                                case 1982: yearMapped = 1.0; break;
+                                case 1983: yearMapped = 1.0; break;
+                                case 1984: yearMapped = 1.0; break;
+                                case 1985: yearMapped = 1.0; break;
+                                case 1986: yearMapped = 1.0; break;
+                                case 1987: yearMapped = 1.0; break;
+                                case 1988: yearMapped = 1.0; break;
+                                case 1989: yearMapped = 1.0; break;
+                                case 1990: yearMapped = 2.0; break;
+                                case 1991: yearMapped = 2.0; break;
+                                case 1992: yearMapped = 2.0; break;
+                                case 1993: yearMapped = 2.0; break;
+                                case 1994: yearMapped = 2.0; break;
+                                case 1995: yearMapped = 2.0; break;
+                                case 1996: yearMapped = 2.0; break;
+                                case 1997: yearMapped = 2.0; break;
+                                case 1998: yearMapped = 2.0; break;
+                                case 1999: yearMapped = 2.0; break;
+                                case 2000: yearMapped = 3.0; break;
+                                case 2001: yearMapped = 3.0; break;
+                                case 2002: yearMapped = 3.0; break;
+                                case 2003: yearMapped = 3.0; break;
+                                case 2004: yearMapped = 3.0; break;
+                                case 2005: yearMapped = 3.0; break;
+                                case 2006: yearMapped = 3.0; break;
+                                case 2007: yearMapped = 3.0; break;
+                                case 2008: yearMapped = 3.0; break;
+                                case 2009: yearMapped = 3.0; break;
+                            }
+
+                            return new LabeledPoint(yearMapped, Vectors.sparse(2350, indices, points));
+                        });
 
         JavaRDD<LabeledPoint> trainingDataByTenYears = dataGroupedByTenYears.sample(false, 0.75);
         trainingDataByTenYears.cache();
-        JavaRDD<LabeledPoint> testingDataByTenYears = dataGroupedByTenYears.subtract(trainingDataByTenYears);
+        JavaRDD<LabeledPoint> testingDataByTenYears = dataGroupedByTenYears.subtract(dataGroupedByTenYears);
 
-        final LogisticRegressionModel dataByTenYearsModel = new LogisticRegressionWithLBFGS().setNumClasses(4).run(trainingDataByTenYears.rdd());
+        final LogisticRegressionModel dataByTenYearsModel = new LogisticRegressionWithLBFGS().setNumClasses(4).run(dataGroupedByTenYears.rdd());
 
-        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsByTenYears = testingDataByTenYears.map(
+        JavaRDD<Tuple2<Object, Object>> predictionAndLabelsByTenYears = testDataGroupedByTenYears.map(
                 new Function<LabeledPoint, Tuple2<Object, Object>>() {
                     public Tuple2<Object, Object> call(LabeledPoint p) {
                         return new Tuple2<Object, Object>(dataByTenYearsModel.predict(p.features()), p.label());
