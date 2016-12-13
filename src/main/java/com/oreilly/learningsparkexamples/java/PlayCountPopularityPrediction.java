@@ -105,7 +105,7 @@ public class PlayCountPopularityPrediction {
                     }
 
                     double isHot = 0.0;
-                    if(song.getPlayCount() >= 101735) {
+                    if(song.getPlayCount() >= 1017) {
                         isHot = 1.0;
                     }
 
@@ -132,9 +132,8 @@ public class PlayCountPopularityPrediction {
                 indices[i] = indexArray.get(i);
             }
 
-
             double isHot = 0.0;
-            if(song.getPlayCount() > 368283) {
+            if(song.getPlayCount() > 3682) {
                 isHot = 1.0;
             }
 
@@ -179,20 +178,19 @@ public class PlayCountPopularityPrediction {
 
                     double isHot = 0.0;
 
-                    if(song.getPlayCount() <= 20000) {
+                    if(song.getPlayCount() <= 720) {
                         isHot = 0.0;
-                    } else if(song.getPlayCount() <= 40000) {
+                    } else if(song.getPlayCount() <= 1440) {
                         isHot = 1.0;
-                    } else if(song.getPlayCount() <= 60000) {
+                    } else if(song.getPlayCount() <= 2160) {
                         isHot = 2.0;
-                    } else if(song.getPlayCount() <= 80000) {
+                    } else if(song.getPlayCount() <= 2800) {
                         isHot = 3.0;
-                    } else if(song.getPlayCount() <= 100000) {
+                    } else if(song.getPlayCount() <= 3600) {
                         isHot = 4.0;
-                    } else if(song.getPlayCount() > 100000) {
+                    } else if(song.getPlayCount() > 3600) {
                         isHot = 5.0;
                     }
-
                     return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
                 });
 
@@ -215,20 +213,19 @@ public class PlayCountPopularityPrediction {
 
                     double isHot = 0.0;
 
-                    if(song.getPlayCount() <= 72000) {
+                    if(song.getPlayCount() <= 720) {
                         isHot = 0.0;
-                    } else if(song.getPlayCount() <= 144000) {
+                    } else if(song.getPlayCount() <= 1440) {
                         isHot = 1.0;
-                    } else if(song.getPlayCount() <= 216000) {
+                    } else if(song.getPlayCount() <= 2160) {
                         isHot = 2.0;
-                    } else if(song.getPlayCount() <= 280000) {
+                    } else if(song.getPlayCount() <= 2800) {
                         isHot = 3.0;
-                    } else if(song.getPlayCount() <= 360000) {
+                    } else if(song.getPlayCount() <= 3600) {
                         isHot = 4.0;
-                    } else if(song.getPlayCount() > 360000) {
+                    } else if(song.getPlayCount() > 3600) {
                         isHot = 5.0;
                     }
-
                     return new LabeledPoint(isHot, Vectors.sparse(2500, indices, points));
                 });
 
@@ -247,6 +244,16 @@ public class PlayCountPopularityPrediction {
         MulticlassMetrics metricsMV = new MulticlassMetrics(predictionAndLabelsMV.rdd());
         double accuracyMV = metricsMV.weightedPrecision();
 
+        JavaRDD<String> metricsResultMV = sc.parallelize(Arrays.asList(
+                "Precision: " + metricsMV.weightedPrecision(),
+                "\nRecall: " +metricsMV.weightedRecall(),
+                "\nF-Measure: "+metricsMV.weightedFMeasure(),
+                "\nFalse Positve Rate: "+metricsMV.weightedFalsePositiveRate(),
+                "\nTrue Positve Rate: "+metricsMV.weightedTruePositiveRate(),
+                "\nConfusion metrics: \n" + metricsMV.confusionMatrix()));
+
+        metricsResultMV.coalesce(1).saveAsTextFile("output/PlayCountPopularity/MetricsMV/"+ Instant.now().toEpochMilli());
+
         System.out.println("Accuracy of play count popularity prediction with 6 classes= " + accuracyMV);
         System.out.println("Accuracy = " + accuracy);
         JavaRDD<String> metricsResult = sc.parallelize(Arrays.asList(
@@ -257,7 +264,7 @@ public class PlayCountPopularityPrediction {
                 "\nTrue Positve Rate: "+metrics.weightedTruePositiveRate(),
                 "\nConfusion metrics: \n" + metrics.confusionMatrix()));
 
-        metricsResult.coalesce(1).saveAsTextFile("output/PlayCountPopularityMetrics/"+ Instant.now().toEpochMilli());
+        metricsResult.coalesce(1).saveAsTextFile("output/PlayCountPopularity/Metrics/"+ Instant.now().toEpochMilli());
     }
 
     public static EnhancedSongInfo createEnhancedSongInfo(String toSplit){
